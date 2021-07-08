@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string}
  */
- var longestPalindrome = function(s) {
+var longestPalindrome = function(s) {
     let currPal = s[0];   // Current palindrome
     let maxPal = currPal; // Longest palindrome
     let currPalStart = 0; // Start index of the current palindrome

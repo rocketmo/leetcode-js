@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {number}
  */
- var myAtoi = function(s) {
+var myAtoi = function(s) {
     s = s.trim();
     let num = 0;
     let digitIndex = 0;

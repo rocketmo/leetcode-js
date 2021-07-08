@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {number}
  */
- var lengthOfLongestSubstring = function(s) {
+var lengthOfLongestSubstring = function(s) {
     const lastCharIndexMap = new Map();
     let maxLen = 0;
     let currLen = 0;

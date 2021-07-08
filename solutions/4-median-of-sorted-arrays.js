@@ -4,7 +4,7 @@
  * @param {number[]} nums2
  * @return {number}
  */
- var findMedianSortedArrays = function(nums1, nums2) {
+var findMedianSortedArrays = function(nums1, nums2) {
     const merged = [...nums1, ...nums2];
     merged.sort((a, b) => a - b);
 
@@ -25,7 +25,7 @@
  * @param {number[]} nums2
  * @return {number}
  */
- var findMedianSortedArrays = function(nums1, nums2) {
+var findMedianSortedArrays = function(nums1, nums2) {
     const shortArr = nums1.length > nums2.length ? nums2 : nums1;
     const longArr = nums1.length > nums2.length ? nums1 : nums2;
 

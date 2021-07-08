@@ -4,7 +4,7 @@
  * @param {number} k
  * @return {number}
  */
- var kthSmallest = function(matrix, k) {
+var kthSmallest = function(matrix, k) {
     const flattened = matrix.reduce((acc, row) => {
         acc.push(...row);
         return acc;
@@ -21,7 +21,7 @@
  * @param {number} k
  * @return {number}
  */
- var kthSmallest = function(matrix, k) {
+var kthSmallest = function(matrix, k) {
     let n = matrix.length,
         lo = matrix[0][0],
         hi = matrix[n -1][n - 1];

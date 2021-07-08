@@ -3,7 +3,7 @@
  * @param {number} numRows
  * @return {string}
  */
- var convert = function(s, numRows) {
+var convert = function(s, numRows) {
     // Construct storage object
     const rows = [];
     for (let i = 0; i < numRows; i += 1) {

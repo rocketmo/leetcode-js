@@ -2,7 +2,7 @@
  * @param {number[]} arr
  * @return {number}
  */
- var minSetSize = function(arr) {
+var minSetSize = function(arr) {
 
     // Map integer to number of occurrences
     const counters = new Map();

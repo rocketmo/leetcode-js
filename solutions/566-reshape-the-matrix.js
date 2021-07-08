@@ -4,7 +4,7 @@
  * @param {number} c
  * @return {number[][]}
  */
- var matrixReshape = function(mat, r, c) {
+var matrixReshape = function(mat, r, c) {
     // Check if the matrix can be reshaped; if not, return the original matrix
     const totalElements = mat.length * mat[0].length;
     if (r * c !== totalElements) { return mat; }

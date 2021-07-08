@@ -11,7 +11,7 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
- var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers = function(l1, l2) {
     let currentListNode1 = l1;
     let currentListNode2 = l2;
     let carryover = 0;
