@@ -5,6 +5,7 @@
  *     this.next = (next===undefined ? null : next)
  * }
  */
+
 /**
  * @param {ListNode} l1
  * @param {ListNode} l2
