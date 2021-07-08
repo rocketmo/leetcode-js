@@ -1,4 +1,26 @@
 /**
+ * First solution: Merge the two arrays into one, sort the resultant array and return the median
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+ var findMedianSortedArrays = function(nums1, nums2) {
+    const merged = [...nums1, ...nums2];
+    merged.sort((a, b) => a - b);
+
+    if (merged.length % 2 === 1) {
+        return merged[(merged.length - 1) / 2];
+    }
+
+    const median1 = merged[merged.length / 2];
+    const median2 = merged[(merged.length / 2) - 1];
+
+    return (median1 + median2) / 2;
+};
+
+/**
+ * Improved solution: Use binary search. Find the split points in each of the arrays.
+ * Median can then be derived from the values at the split point.
  * @param {number[]} nums1
  * @param {number[]} nums2
  * @return {number}
