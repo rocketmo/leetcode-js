@@ -12,7 +12,7 @@ var minimumPerimeter = function(neededApples) {
         currLen += 1;
 
         const nextPerimeterSide = ((currLen * 2) - 1) + (currLen * 4) + prevPerimeterApples;
-        const nextPerimeterApples = (nextPerimeterSide * 4) - (4 * currLen);
+        const nextPerimeterApples = (nextPerimeterSide * 4) - (8 * currLen);
 
         currApples += nextPerimeterApples;
         memo.push(nextPerimeterSide);
