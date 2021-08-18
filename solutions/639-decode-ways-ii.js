@@ -30,7 +30,7 @@ var numDecodings = function(s) {
         } else if (char === "1") {
             if (nextChar === "*") {
                 dp[i] = modulo(dp[i + 1] + (9 * dp[i + 2]));
-            } else if (nextChar >= "1" && nextChar <= "9") {
+            } else if (nextChar >= "1" && nextChar <= "9" && nextChar2 !== "0") {
                 dp[i] = modulo(dp[i + 1] + dp[i + 2]);
             } else {
                 dp[i] = dp[i + 1];
@@ -41,7 +41,7 @@ var numDecodings = function(s) {
         } else if (char === "2") {
             if (nextChar === "*") {
                 dp[i] = modulo(dp[i + 1] + (6 * dp[i + 2]));
-            } else if (nextChar >= "1" && nextChar <= "6") {
+            } else if (nextChar >= "1" && nextChar <= "6" && nextChar2 !== "0") {
                 dp[i] = modulo(dp[i + 1] + dp[i + 2]);
             } else {
                 dp[i] = dp[i + 1];
