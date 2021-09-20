@@ -10,7 +10,7 @@ var longestSubsequenceRepeatedK = function(s, k) {
     // Find all possible characters that can appear in the subsequence (characters must appear at
     // least k times in s)
     const charCount = new Map();
-    const possibleChars = []
+    const possibleChars = [];
 
     for (const char of s) {
         if (charCount.has(char)) {

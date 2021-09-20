@@ -1,10 +1,10 @@
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
  */
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val);
+    this.next = (next===undefined ? null : next);
+}
 
 /**
  * First solution: Using a stack
@@ -44,7 +44,7 @@ var removeNthFromEnd = function(head, n) {
  * @param {number} n
  * @return {ListNode}
  */
- var removeNthFromEnd = function(head, n) {
+var removeNthFromEnd = function(head, n) {
     // Create a dummy node and place it at the start of the lsit
     let dummy = new ListNode();
     dummy.next = head;

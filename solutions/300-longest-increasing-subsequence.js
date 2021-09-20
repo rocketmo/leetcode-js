@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * First solution: Dynamic programming
  * @param {number[]} nums

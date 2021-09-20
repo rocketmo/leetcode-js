@@ -37,7 +37,7 @@ var findIntegers = function(n) {
 
         // Consecutive 0's, subtract '01' solutions
         if (binStr[i] === "0" && binStr[i - 1] === "0") {
-            ans -= b[binStr.length - 1 - i]
+            ans -= b[binStr.length - 1 - i];
         }
     }
 

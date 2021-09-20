@@ -71,7 +71,7 @@ class LRUCache {
             node.value = value;
             this._moveToHead(node);
         }
-    };
+    }
 
     /**
      * Removes a node currently in the list and appends it to the head

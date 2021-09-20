@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * @param {number[]} boxes
  * @return {number}
@@ -38,7 +40,7 @@ var removeBoxes = function(boxes) {
 
         for (let m = i + 1; m <= j; m += 1) {
             if (boxes[i] === boxes[m]) {
-                ans = Math.max(ans, solve(i + 1, m - 1, 0) + solve(m, j, k + 1))
+                ans = Math.max(ans, solve(i + 1, m - 1, 0) + solve(m, j, k + 1));
             }
         }
 

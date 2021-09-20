@@ -36,7 +36,7 @@ var repeatedSubstringPattern = function(s) {
  * @param {string} s
  * @return {boolean}
  */
- var repeatedSubstringPattern = function(s) {
+var repeatedSubstringPattern = function(s) {
     // Repeat s, then strip the first and last character
     const ss = s.repeat(2).substr(1, (s.length * 2) - 2);
 

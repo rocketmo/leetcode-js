@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {number}
  */
- var countPalindromicSubsequence = function(s) {
+var countPalindromicSubsequence = function(s) {
     const charIndexMap = new Map();
     for (let i = 0; i < s.length; i += 1) {
         const char = s[i];

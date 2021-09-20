@@ -1,0 +1,20 @@
+{
+    "root": true,
+    "env": {
+        "node": true,
+        "es2020": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "indent": ["warn", 4],
+        "max-len": ["warn", { "code": 100 }],
+        "multiline-ternary": "off",
+        "no-constant-condition": "warn",
+        "no-multiple-empty-lines": ["warn", { "max": 2, "maxEOF": 1, "maxBOF": 0 }],
+        "no-redeclare": "warn",
+        "no-unused-vars": "warn",
+        "quotes": ["warn", "double"],
+        "semi": ["warn", "always"],
+        "space-before-function-paren": "off"
+    }
+}

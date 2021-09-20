@@ -1,10 +1,12 @@
+const _ = require("lodash");
+
 /**
  * @param {number[][]} edges
  * @param {number} maxMoves
  * @param {number} n
  * @return {number}
  */
- var reachableNodes = function(edges, maxMoves, n) {
+var reachableNodes = function(edges, maxMoves, n) {
     // Create the graph
     const edgeMap = new Map();
     for (const [ u, v, cnt ] of edges) {
@@ -101,4 +103,4 @@
     }
 
     return ans;
-}
+};

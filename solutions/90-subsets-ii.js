@@ -4,7 +4,7 @@
  */
 var subsetsWithDup = function(nums) {
 
-    nums.sort((a, b) => a - b)
+    nums.sort((a, b) => a - b);
     const sets = [];
 
     // Create sets of each possible size

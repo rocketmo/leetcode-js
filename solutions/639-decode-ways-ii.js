@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * Dynamic programming approach
  * @param {string} s
@@ -58,7 +60,7 @@ var numDecodings = function(s) {
         dp[i] = dp[i + 1];
     }
 
-    return dp[0]
+    return dp[0];
 
     function modulo(num) {
         return num % (1e9 + 7);

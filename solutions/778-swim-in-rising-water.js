@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * Depth first search approach
  * @param {number[][]} grid
@@ -25,25 +27,25 @@ var swimInWater = function(grid) {
         // Check the above cell
         if (i > 0 && dp[i - 1][j] > Math.max(curr, grid[i - 1][j])) {
             dp[i - 1][j] = Math.max(curr, grid[i - 1][j]);
-            stack.push({ i: i - 1, j })
+            stack.push({ i: i - 1, j });
         }
 
         // Check the below cell
         if (i < n - 1 && dp[i + 1][j] > Math.max(curr, grid[i + 1][j])) {
             dp[i + 1][j] = Math.max(curr, grid[i + 1][j]);
-            stack.push({ i: i + 1, j })
+            stack.push({ i: i + 1, j });
         }
 
         // Check the cell to the left
         if (j > 0 && dp[i][j - 1] > Math.max(curr, grid[i][j - 1])) {
             dp[i][j - 1] = Math.max(curr, grid[i][j - 1]);
-            stack.push({ i, j: j - 1 })
+            stack.push({ i, j: j - 1 });
         }
 
         // Check the cell to the right
         if (j < n - 1 && dp[i][j + 1] > Math.max(curr, grid[i][j + 1])) {
             dp[i][j + 1] = Math.max(curr, grid[i][j + 1]);
-            stack.push({ i, j: j + 1 })
+            stack.push({ i, j: j + 1 });
         }
 
     }

@@ -42,5 +42,5 @@ var getHint = function(secret, guess) {
         cows += Math.min(secCountMap.get(i), guessCountMap.get(i));
     }
 
-    return `${bulls}A${cows}B`
+    return `${bulls}A${cows}B`;
 };

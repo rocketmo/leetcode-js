@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * @param {number[][]} mat
  * @return {number[][]}

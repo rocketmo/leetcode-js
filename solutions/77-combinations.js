@@ -39,5 +39,5 @@ var combine = function(n, k) {
         combinations = tempCombos;
     }
 
-    return combinations
+    return combinations;
 };

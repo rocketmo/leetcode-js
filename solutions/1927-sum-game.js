@@ -7,18 +7,18 @@ var sumGame = function(num) {
     const sums = getHalfSums(num);
 
     const aliceLeftMoves = Math.ceil(indices.left / 2),
-          bobLeftMoves = Math.floor(indices.left / 2),
-          aliceRightMoves = aliceLeftMoves > bobLeftMoves ?
+        bobLeftMoves = Math.floor(indices.left / 2),
+        aliceRightMoves = aliceLeftMoves > bobLeftMoves ?
             Math.floor(indices.right / 2) : Math.ceil(indices.right / 2),
-          bobRightMoves = aliceLeftMoves > bobLeftMoves ?
+        bobRightMoves = aliceLeftMoves > bobLeftMoves ?
             Math.ceil(indices.right / 2) : Math.floor(indices.right / 2),
-          aliceTotalMoves = aliceLeftMoves + aliceRightMoves,
-          bobTotalMoves = bobLeftMoves + bobRightMoves;
+        aliceTotalMoves = aliceLeftMoves + aliceRightMoves,
+        bobTotalMoves = bobLeftMoves + bobRightMoves;
 
     const aliceLeft = sums.left + (aliceLeftMoves * 9),
-          bobLeft = sums.left + (bobLeftMoves * 9),
-          aliceRight = sums.right + (aliceRightMoves * 9),
-          bobRight = sums.right + (bobRightMoves * 9);
+        bobLeft = sums.left + (bobLeftMoves * 9),
+        aliceRight = sums.right + (aliceRightMoves * 9),
+        bobRight = sums.right + (bobRightMoves * 9);
 
     // Alice wins if she has more moves, or if she can always make one side too
     // small/large for Bob to match

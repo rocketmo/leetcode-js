@@ -2,7 +2,7 @@
  * @param {string} binary
  * @return {number}
  */
- var numberOfUniqueGoodSubsequences = function(binary) {
+var numberOfUniqueGoodSubsequences = function(binary) {
     let hasZero = false; // Set to true if binary has a `0` anywhere in the string
     let ans = 0;         // Our eventual answer
     let start = 0;       // Index where we should start counting unique subsequences

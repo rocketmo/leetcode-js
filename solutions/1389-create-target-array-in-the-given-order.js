@@ -3,7 +3,7 @@
  * @param {number[]} index
  * @return {number[]}
  */
- var createTargetArray = function(nums, index) {
+var createTargetArray = function(nums, index) {
     const ans = [];
 
     for (let i = 0; i < nums.length; i += 1) {

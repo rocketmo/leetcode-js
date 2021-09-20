@@ -1,3 +1,5 @@
+const { MaxPriorityQueue } = require("@datastructures-js/priority-queue");
+
 /**
  * @param {number[][]} mat
  * @param {number} k

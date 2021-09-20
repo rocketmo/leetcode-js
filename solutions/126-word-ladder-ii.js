@@ -1,3 +1,5 @@
+const { Queue } = require("@datastructures-js/queue");
+
 /**
  * @param {string} beginWord
  * @param {string} endWord

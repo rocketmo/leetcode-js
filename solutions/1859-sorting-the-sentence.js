@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * @param {string} s
  * @return {string}

@@ -1,9 +1,11 @@
+const _ = require("lodash");
+
 /**
  * Also see P639 (Decode Ways II)
  * @param {string} s
  * @return {number}
  */
- var numDecodings = function(s) {
+var numDecodings = function(s) {
     const dp = _.fill(Array(s.length + 1), 1);
 
     for (let i = s.length - 1; i >= 0; i -= 1) {

@@ -19,7 +19,6 @@ var minFlipsMonoIncr = function(s) {
     }
 
     // Count numbers in between
-    const midNums = s.length - endOnes - startZeroes;
     const numMidZeroes = [ 0 ];
 
     for (let i = startZeroes; i < s.length - endOnes; i += 1) {
@@ -33,7 +32,7 @@ var minFlipsMonoIncr = function(s) {
     // Answer is the minimum number of changes after splitting the middle string
     return numMidZeroes.reduce((acc, val, idx) => {
         const leftOnes = idx - val,
-              rightZeroes = numMidZeroes[numMidZeroes.length - 1] - val;
+            rightZeroes = numMidZeroes[numMidZeroes.length - 1] - val;
         return Math.min(acc, leftOnes + rightZeroes);
     }, Number.MAX_SAFE_INTEGER);
 };

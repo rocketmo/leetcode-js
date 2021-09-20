@@ -21,7 +21,7 @@ var numPairsDivisibleBy60 = function(time) {
  * @param {number[]} time
  * @return {number}
  */
- var numPairsDivisibleBy60 = function(time) {
+var numPairsDivisibleBy60 = function(time) {
     const diffMap = new Map();
     let ans = 0;
 

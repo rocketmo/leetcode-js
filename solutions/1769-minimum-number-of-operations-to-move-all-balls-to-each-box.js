@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * @param {string} boxes
  * @return {number[]}

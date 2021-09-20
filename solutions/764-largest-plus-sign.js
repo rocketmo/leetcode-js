@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * @param {number} n
  * @param {number[][]} mines
@@ -52,7 +54,7 @@ var orderOfLargestPlusSign = function(n, mines) {
             }
         }
     }
-    
+
     return maxAns;
 
 

@@ -8,7 +8,7 @@ var kthSmallest = function(matrix, k) {
     const flattened = matrix.reduce((acc, row) => {
         acc.push(...row);
         return acc;
-    }, [])
+    }, []);
 
     flattened.sort((a, b) => a - b);
     return flattened[k - 1];

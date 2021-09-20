@@ -26,11 +26,13 @@ var pathSum = function(root, targetSum) {
         const paths = [];
 
         if (currNode.left) {
-            paths.push(...dfs(currNode.left, currSum + currNode.val, [ ...currPath, currNode.val] ));
+            paths.push(...dfs(currNode.left, currSum + currNode.val,
+                [ ...currPath, currNode.val] ));
         }
 
         if (currNode.right) {
-            paths.push(...dfs(currNode.right, currSum + currNode.val, [ ...currPath, currNode.val] ));
+            paths.push(...dfs(currNode.right, currSum + currNode.val,
+                [ ...currPath, currNode.val] ));
         }
 
         return paths;

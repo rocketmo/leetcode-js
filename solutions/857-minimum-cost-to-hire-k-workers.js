@@ -1,3 +1,5 @@
+const { MaxPriorityQueue } = require("@datastructures-js/priority-queue");
+
 /**
  * @param {number[]} quality
  * @param {number[]} wage
@@ -38,7 +40,8 @@ var mincostToHireWorkers = function(quality, wage, k) {
         }
 
         // Calculate the total wage of the group
-        // Total wage is equal to the total quality of the group multiplied by the highest ratio of the group
+        // Total wage is equal to the total quality of the group multiplied by the highest ratio of
+        // the group
         if (pq.size() === k) {
             lowestWages = Math.min(lowestWages, currentQuality * worker.ratio);
         }

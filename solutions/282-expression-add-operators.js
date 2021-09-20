@@ -5,14 +5,14 @@
  */
 var addOperators = function(num, target) {
     const ans = [];
-    const ops = [ "+", "-", "*" ]
+    const ops = [ "+", "-", "*" ];
     dfs(num, "", []);
 
     return ans;
 
     function dfs(num, expr, vals) {
         if (!num) {
-            if (eval(vals) === target) {
+            if (sum(vals) === target) {
                 ans.push(expr);
             }
 
@@ -47,7 +47,7 @@ var addOperators = function(num, target) {
         }
     }
 
-    function eval(vals) {
+    function sum(vals) {
         return vals.reduce((acc, val) => {
             return acc + val;
         }, 0);

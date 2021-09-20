@@ -28,7 +28,7 @@ var majorityElement = function(nums) {
  * @param {number[]} nums
  * @return {number}
  */
- var majorityElement = function(nums) {
+var majorityElement = function(nums) {
     let candidate = null;
     let count = 0;
 

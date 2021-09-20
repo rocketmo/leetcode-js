@@ -7,7 +7,8 @@ var RandomizedSet = function() {
 };
 
 /**
- * Inserts a value to the set. Returns true if the set did not already contain the specified element.
+ * Inserts a value to the set. Returns true if the set did not already contain the specified
+ * element.
  * @param {number} val
  * @return {boolean}
  */

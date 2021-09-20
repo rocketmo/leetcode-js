@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * @param {string} s
  * @param {number[]} shifts

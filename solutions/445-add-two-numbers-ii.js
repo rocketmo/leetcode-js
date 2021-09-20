@@ -1,10 +1,10 @@
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
  */
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val);
+    this.next = (next===undefined ? null : next);
+}
 
 /**
  * @param {ListNode} l1
@@ -12,7 +12,7 @@
  * @return {ListNode}
  */
 var addTwoNumbers = function(l1, l2) {
-     // Reverse the two given lists
+    // Reverse the two given lists
     let rev1 = new ListNode(l1.val);
     let rev2 = new ListNode(l2.val);
     let curr1 = l1.next, curr2 = l2.next;

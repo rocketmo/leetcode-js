@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * First solution: Brute force
  * @param {number[][]} grid
@@ -27,7 +29,8 @@ var closedIsland = function(grid) {
 
             if (aboveIsland && !leftIsland) { // connected island above
                 islandMap[i][j] = aboveIsland;
-                closedIslandMap.set(aboveIsland, closedIslandMap.get(aboveIsland) && !isOnEdge(i, j));
+                closedIslandMap.set(aboveIsland,
+                    closedIslandMap.get(aboveIsland) && !isOnEdge(i, j));
             }
 
             if (!aboveIsland && leftIsland) { // connected island to the left
@@ -39,7 +42,8 @@ var closedIsland = function(grid) {
 
                 // connected to same island
                 if (aboveIsland === leftIsland) {
-                    closedIslandMap.set(aboveIsland, closedIslandMap.get(aboveIsland) && !isOnEdge(i, j));
+                    closedIslandMap.set(aboveIsland,
+                        closedIslandMap.get(aboveIsland) && !isOnEdge(i, j));
                 }
 
                 // connected to different islands

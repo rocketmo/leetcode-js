@@ -13,7 +13,7 @@ var letterCombinations = function(digits) {
         "7": ["p", "q", "r", "s"],
         "8": ["t", "u", "v"],
         "9": ["w", "x", "y", "z"]
-    }
+    };
 
     let ans = [];
 
@@ -43,7 +43,7 @@ var letterCombinations = function(digits) {
  */
 var letterCombinations = function(digits) {
     const dict = [ "", "", "abc", "def", "ghi", "jkl", "mno",
-                   "pqrs", "tuv", "wxyz" ];
+        "pqrs", "tuv", "wxyz" ];
 
     let ans = [];
 

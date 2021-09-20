@@ -2,7 +2,7 @@
  * @param {number[][]} properties
  * @return {number}
  */
- var numberOfWeakCharacters = function(properties) {
+var numberOfWeakCharacters = function(properties) {
     properties.sort(([aAtk, aDef], [bAtk, bDef]) => {
         if (aAtk === bAtk) {
             return bDef - aDef;

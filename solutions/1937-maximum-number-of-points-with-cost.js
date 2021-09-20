@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 /**
  * @param {number[][]} points
  * @return {number}

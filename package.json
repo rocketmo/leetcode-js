@@ -1,0 +1,33 @@
+{
+  "name": "leetcode-js",
+  "version": "1.0.0",
+  "description": "Solutions to LeetCode problems; written in JS.",
+  "scripts": {
+    "lint": "eslint .",
+    "lint-quiet": "eslint --quiet .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocketmo/leetcode-js.git"
+  },
+  "keywords": [
+    "leetcode",
+    "javascript",
+    "js"
+  ],
+  "author": "Nien Van",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rocketmo/leetcode-js/issues"
+  },
+  "homepage": "https://github.com/rocketmo/leetcode-js#readme",
+  "dependencies": {
+    "@datastructures-js/priority-queue": "^5.2.0",
+    "@datastructures-js/queue": "^4.1.3",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}

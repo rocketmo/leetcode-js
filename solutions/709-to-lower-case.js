@@ -12,7 +12,7 @@ var toLowerCase = function(s) {
  * @param {string} s
  * @return {string}
  */
- var toLowerCase = function(s) {
+var toLowerCase = function(s) {
     const lowerCode = "A".charCodeAt(0);
     const upperCode = "Z".charCodeAt(0);
     const diff = "a".charCodeAt(0) - lowerCode;
