@@ -1,3 +1,5 @@
+const assert = require("assert");
+
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -18,3 +20,10 @@ var twoSum = function(nums, target) {
 
     return [-1, -1];
 };
+
+const arr1 = [2, 7, 11, 15];
+const twoSumAns1 = twoSum(arr1, 9);
+assert(twoSumAns1.length === 2);
+assert(twoSumAns1[0] >= 0 && twoSumAns1[0] < arr1.length);
+assert(twoSumAns1[1] >= 0 && twoSumAns1[1] < arr1.length);
+assert.equal(arr1[twoSumAns1[0]] + arr1[twoSumAns1[1]], 9);
