@@ -7,19 +7,21 @@
  */
 
 /**
+ * Two pointers solution
  * @param {ListNode} head
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    let currNode = head;
+    let slowNode = head;
+    let fastNode = head;
 
-    while (currNode) {
-        if (currNode.visited) {
+    while (slowNode?.next && fastNode?.next?.next) {
+        slowNode = slowNode.next;
+        fastNode = fastNode.next.next;
+
+        if (slowNode === fastNode) {
             return true;
         }
-
-        currNode.visited = true;
-        currNode = currNode.next;
     }
 
     return false;
