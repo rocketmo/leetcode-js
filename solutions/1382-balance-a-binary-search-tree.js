@@ -1,5 +1,3 @@
-const { TreeNode } = require("../other/definitions");
-
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -23,7 +21,7 @@ var balanceBST = function(root) {
         }
 
         inOrderTraversal(node.left);
-        ordered.push(node.val);
+        ordered.push(node);
         inOrderTraversal(node.right);
     }
 
@@ -33,7 +31,7 @@ var balanceBST = function(root) {
         }
 
         const mid = Math.floor(arr.length / 2);
-        const root = new TreeNode(arr[mid]);
+        const root = arr[mid];
         root.left = constructBalancedTree(arr.slice(0, mid));
         root.right = constructBalancedTree(arr.slice(mid + 1));
 
