@@ -6,12 +6,12 @@ const assert = require("assert");
  */
 var maxSubArray = function(nums) {
     let ans = nums[0];
-    const dp = [ ans ];
+    let prev = ans;
 
     for (let i = 1; i < nums.length; i += 1) {
-        const curr = Math.max(nums[i], nums[i] + dp[i - 1]);
+        const curr = Math.max(nums[i], nums[i] + prev);
         ans = Math.max(ans, curr);
-        dp.push(curr);
+        prev = curr;
     }
 
     return ans;
