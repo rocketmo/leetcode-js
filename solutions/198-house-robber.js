@@ -7,20 +7,19 @@ const assert = require("assert");
 var rob = function(nums) {
     const n = nums.length;
     const dp = [];
+    let maxCash = 0;
 
-    for (let i = 0; i < nums.length; i += 1) {
+    for (let i = 0; i < n; i += 1) {
         const currCash = nums[i];
         const prevCash = i > 1 ? dp[i - 2] : 0;
         const prevCash2 = i > 2 ? dp[i - 3] : 0;
+        const currBest = Math.max(currCash + prevCash, currCash + prevCash2);
 
-        dp.push(Math.max(currCash + prevCash, currCash + prevCash2));
+        dp.push(currBest);
+        maxCash = Math.max(currBest, maxCash);
     }
 
-    if (n >= 2) {
-        return Math.max(dp[n - 1], dp[n - 2]);
-    }
-
-    return dp[n - 1];
+    return maxCash;
 };
 
 assert.equal(rob([1,2,3,1]), 4);
