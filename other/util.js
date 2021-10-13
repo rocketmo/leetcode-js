@@ -23,6 +23,25 @@ function convertArrayToList(arr) {
 }
 
 /**
+ * Converts a singly-linked list into an array.
+ * @param {ListNode | null} head Head of the list
+ * @returns {any[]}
+ */
+function convertListToArray(head) {
+    if (!head) {
+        return [];
+    }
+
+    const arr = [];
+    while (head) {
+        arr.push(head.val);
+        head = head.next;
+    }
+
+    return arr;
+}
+
+/**
  * Converts an array into a binary tree.
  * @param {any[] | null} arr
  * @returns {TreeNode | null} Head of the list
@@ -93,5 +112,6 @@ function convertBinaryTreeToArray(head) {
 }
 
 exports.convertArrayToList = convertArrayToList;
+exports.convertListToArray = convertListToArray;
 exports.convertArrayToBinaryTree = convertArrayToBinaryTree;
 exports.convertBinaryTreeToArray = convertBinaryTreeToArray;

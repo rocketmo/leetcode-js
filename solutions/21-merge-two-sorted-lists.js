@@ -1,3 +1,6 @@
+const assert = require("assert");
+const { convertArrayToList, convertListToArray } = require("../other/util");
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -48,3 +51,12 @@ var mergeTwoLists = function(l1, l2) {
 
     return newListHead;
 };
+
+const test1 = mergeTwoLists(convertArrayToList([1,2,4]), convertArrayToList([1,3,4]));
+assert(convertListToArray(test1), [1,1,2,3,4,4]);
+
+const test2 = mergeTwoLists(convertArrayToList([]), convertArrayToList([]));
+assert(convertListToArray(test2), []);
+
+const test3 = mergeTwoLists(convertArrayToList([]), convertArrayToList([0]));
+assert(convertListToArray(test3), [0]);
