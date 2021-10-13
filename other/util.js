@@ -1,3 +1,4 @@
+const { Queue } = require("@datastructures-js/queue");
 const { ListNode, TreeNode } = require("./definitions");
 
 /**
@@ -58,5 +59,39 @@ function convertArrayToBinaryTree(arr) {
     return head;
 }
 
+/**
+ * Converts a binary tree to an array.
+ * @param {TreeNode | null} arr Head of the list
+ * @returns {any[]}
+ */
+function convertBinaryTreeToArray(head) {
+    if (!head) {
+        return [];
+    }
+
+    const arr = [ head.val ];
+    const queue = new Queue([ head ]);
+    let buffer = [];
+
+    while(queue.size() > 0) {
+        const node = queue.dequeue();
+        addNode(node.left);
+        addNode(node.right);
+    }
+
+    return arr;
+
+    function addNode(node) {
+        if (node) {
+            arr.push(...buffer, node.val);
+            buffer = [];
+            queue.enqueue(node);
+        } else {
+            buffer.push(null);
+        }
+    }
+}
+
 exports.convertArrayToList = convertArrayToList;
 exports.convertArrayToBinaryTree = convertArrayToBinaryTree;
+exports.convertBinaryTreeToArray = convertBinaryTreeToArray;
