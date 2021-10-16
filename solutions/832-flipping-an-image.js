@@ -1,3 +1,5 @@
+const assert = require("assert");
+
 /**
  * @param {number[][]} image
  * @return {number[][]}
@@ -31,3 +33,7 @@ var flipAndInvertImage = function(image) {
         return 0;
     }
 };
+
+assert.deepEqual(flipAndInvertImage([[1,1,0],[1,0,1],[0,0,0]]), [[1,0,0],[0,1,0],[1,1,1]]);
+assert.deepEqual(flipAndInvertImage([[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]),
+    [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]);
