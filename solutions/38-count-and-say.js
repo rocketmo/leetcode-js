@@ -9,14 +9,7 @@ var countAndSay = function(n) {
 
     for (let i = 1; i < n; i += 1) {
         const groups = groupDigits(ans);
-        let newAns = "";
-
-        for (const group of groups) {
-            newAns += group.count;
-            newAns += group.digit;
-        }
-
-        ans = newAns;
+        ans = convertGroupsToSequence(groups);
     }
 
     return ans;
@@ -33,6 +26,17 @@ var countAndSay = function(n) {
         }
 
         return groups;
+    }
+
+    function convertGroupsToSequence(groups) {
+        let ans = "";
+
+        for (const group of groups) {
+            ans += group.count;
+            ans += group.digit;
+        }
+
+        return ans;
     }
 };
 
