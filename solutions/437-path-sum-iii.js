@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
 
 /**
  * Definition for a binary tree node.
@@ -15,32 +15,32 @@ const { convertArrayToBinaryTree } = require("../other/util");
  * @return {number}
  */
 var pathSum = function(root, targetSum) {
-    let ans = 0;
-    dfs(root, []);
-    return ans;
+  let ans = 0;
+  dfs(root, []);
+  return ans;
 
-    function dfs(node, path) {
-        if (!node) {
-            return;
-        }
-
-        let currSum = 0;
-        path.push(node.val);
-
-        for (let i = path.length - 1; i >= 0; i -= 1) {
-            currSum += path[i];
-
-            if (currSum === targetSum) {
-                ans += 1;
-            }
-        }
-
-        dfs(node.left, path);
-        dfs(node.right, path);
-
-        // Backtrack
-        path.pop();
+  function dfs(node, path) {
+    if (!node) {
+      return;
     }
+
+    let currSum = 0;
+    path.push(node.val);
+
+    for (let i = path.length - 1; i >= 0; i -= 1) {
+      currSum += path[i];
+
+      if (currSum === targetSum) {
+        ans += 1;
+      }
+    }
+
+    dfs(node.left, path);
+    dfs(node.right, path);
+
+    // Backtrack
+    path.pop();
+  }
 };
 
 assert.equal(pathSum(convertArrayToBinaryTree([10,5,-3,3,2,null,11,3,-2,null,1]), 8), 3);

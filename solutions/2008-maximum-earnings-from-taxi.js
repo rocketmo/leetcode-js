@@ -1,4 +1,4 @@
-const _ = require("lodash");
+const _ = require('lodash');
 
 /**
  * @param {number} n
@@ -6,25 +6,25 @@ const _ = require("lodash");
  * @return {number}
  */
 var maxTaxiEarnings = function(n, rides) {
-    rides.sort((a, b) => {
-        return a[1] - b[1];
-    });
+  rides.sort((a, b) => {
+    return a[1] - b[1];
+  });
 
-    const dp = _.fill(Array(n + 1), 0);
-    let currRideIdx = 0;
-    for (let i = 1; i <= n; i += 1) {
-        dp[i] = dp[i - 1];
+  const dp = _.fill(Array(n + 1), 0);
+  let currRideIdx = 0;
+  for (let i = 1; i <= n; i += 1) {
+    dp[i] = dp[i - 1];
 
-        while (currRideIdx < rides.length) {
-            const [ start, end, tip ] = rides[currRideIdx];
-            if (end <= i) {
-                dp[end] = Math.max(dp[end], dp[start] + (end - start + tip));
-                currRideIdx += 1;
-            } else {
-                break;
-            }
-        }
+    while (currRideIdx < rides.length) {
+      const [ start, end, tip ] = rides[currRideIdx];
+      if (end <= i) {
+        dp[end] = Math.max(dp[end], dp[start] + (end - start + tip));
+        currRideIdx += 1;
+      } else {
+        break;
+      }
     }
+  }
 
-    return dp[n];
+  return dp[n];
 };

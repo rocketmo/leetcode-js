@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * First solution: Using powers of 2
@@ -6,20 +6,20 @@ const assert = require("assert");
  * @return {number}
  */
 var hammingWeight = function(n) {
-    let power = 31;
-    let ans = 0;
+  let power = 31;
+  let ans = 0;
 
-    while (power >= 0 && n > 0) {
-        const num = (2 ** power);
-        if (n >= num) {
-            ans += 1;
-            n -= num;
-        }
-
-        power -= 1;
+  while (power >= 0 && n > 0) {
+    const num = (2 ** power);
+    if (n >= num) {
+      ans += 1;
+      n -= num;
     }
 
-    return ans;
+    power -= 1;
+  }
+
+  return ans;
 };
 
 /**
@@ -28,14 +28,14 @@ var hammingWeight = function(n) {
  * @return {number}
  */
 var hammingWeight = function(n) {
-    let ans = 0;
+  let ans = 0;
 
-    while (n > 0) {
-        ans += (n & 1);
-        n = n >>> 1;
-    }
+  while (n > 0) {
+    ans += (n & 1);
+    n = n >>> 1;
+  }
 
-    return ans;
+  return ans;
 };
 
 assert.equal(hammingWeight(11), 3);

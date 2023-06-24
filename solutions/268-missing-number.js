@@ -1,19 +1,19 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number[]} nums
  * @return {number}
  */
 var missingNumber = function(nums) {
-    let nTotal = 0;
-    let numsTotal = 0;
+  let nTotal = 0;
+  let numsTotal = 0;
 
-    for (let i = 0; i < nums.length; i += 1) {
-        nTotal += (i + 1);
-        numsTotal += nums[i];
-    }
+  for (let i = 0; i < nums.length; i += 1) {
+    nTotal += (i + 1);
+    numsTotal += nums[i];
+  }
 
-    return nTotal - numsTotal;
+  return nTotal - numsTotal;
 };
 
 assert.equal(missingNumber([3,0,1]), 2);

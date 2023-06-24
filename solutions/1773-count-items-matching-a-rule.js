@@ -5,18 +5,18 @@
  * @return {number}
  */
 var countMatches = function(items, ruleKey, ruleValue) {
-    let ans = 0;
-    let ruleIdx = 0;
+  let ans = 0;
+  let ruleIdx = 0;
 
-    if (ruleKey === "color") {
-        ruleIdx = 1;
-    } else if (ruleKey === "name") {
-        ruleIdx = 2;
-    }
+  if (ruleKey === 'color') {
+    ruleIdx = 1;
+  } else if (ruleKey === 'name') {
+    ruleIdx = 2;
+  }
 
-    for (const item of items) {
-        ans += (item[ruleIdx] === ruleValue) ? 1 : 0;
-    }
+  for (const item of items) {
+    ans += (item[ruleIdx] === ruleValue) ? 1 : 0;
+  }
 
-    return ans;
+  return ans;
 };

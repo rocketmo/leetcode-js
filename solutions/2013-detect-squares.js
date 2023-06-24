@@ -1,7 +1,6 @@
-
 var DetectSquares = function() {
-    this.xMap = new Map();
-    this.yMap = new Map();
+  this.xMap = new Map();
+  this.yMap = new Map();
 };
 
 /**
@@ -9,37 +8,37 @@ var DetectSquares = function() {
  * @return {void}
  */
 DetectSquares.prototype.add = function(point) {
-    const [ x, y ] = point;
+  const [ x, y ] = point;
 
-    // X-map
-    if (this.xMap.has(x)) {
-        const xMap = this.xMap.get(x);
+  // X-map
+  if (this.xMap.has(x)) {
+    const xMap = this.xMap.get(x);
 
-        if (xMap.has(y)) {
-            xMap.set(y, xMap.get(y) + 1);
-        } else {
-            xMap.set(y, 1);
-        }
+    if (xMap.has(y)) {
+      xMap.set(y, xMap.get(y) + 1);
     } else {
-        const countMap = new Map();
-        countMap.set(y, 1);
-        this.xMap.set(x, countMap);
+      xMap.set(y, 1);
     }
+  } else {
+    const countMap = new Map();
+    countMap.set(y, 1);
+    this.xMap.set(x, countMap);
+  }
 
-    // Y-map
-    if (this.yMap.has(y)) {
-        const yMap = this.yMap.get(y);
+  // Y-map
+  if (this.yMap.has(y)) {
+    const yMap = this.yMap.get(y);
 
-        if (yMap.has(x)) {
-            yMap.set(x, yMap.get(x) + 1);
-        } else {
-            yMap.set(x, 1);
-        }
+    if (yMap.has(x)) {
+      yMap.set(x, yMap.get(x) + 1);
     } else {
-        const countMap = new Map();
-        countMap.set(x, 1);
-        this.yMap.set(y, countMap);
+      yMap.set(x, 1);
     }
+  } else {
+    const countMap = new Map();
+    countMap.set(x, 1);
+    this.yMap.set(y, countMap);
+  }
 };
 
 /**
@@ -47,29 +46,29 @@ DetectSquares.prototype.add = function(point) {
  * @return {number}
  */
 DetectSquares.prototype.count = function(point) {
-    const [ x, y ] = point;
-    let ans = 0;
+  const [ x, y ] = point;
+  let ans = 0;
 
-    if (this.xMap.has(x) && this.yMap.has(y)) {
-        for (const y2 of this.xMap.get(x).keys()) {
-            if (y === y2) {
-                continue;
-            }
+  if (this.xMap.has(x) && this.yMap.has(y)) {
+    for (const y2 of this.xMap.get(x).keys()) {
+      if (y === y2) {
+        continue;
+      }
 
-            // Find parallel
-            const sideLen = Math.abs(y - y2);
-            const possibleX = [ x - sideLen, x + sideLen];
+      // Find parallel
+      const sideLen = Math.abs(y - y2);
+      const possibleX = [ x - sideLen, x + sideLen];
 
-            for (const px of possibleX) {
-                if (this.yMap.get(y).has(px) && this.xMap.has(px) && this.xMap.get(px).has(y2)) {
-                    ans += this.xMap.get(x).get(y2) * this.yMap.get(y).get(px)
+      for (const px of possibleX) {
+        if (this.yMap.get(y).has(px) && this.xMap.has(px) && this.xMap.get(px).has(y2)) {
+          ans += this.xMap.get(x).get(y2) * this.yMap.get(y).get(px)
                         * this.xMap.get(px).get(y2);
-                }
-            }
         }
+      }
     }
+  }
 
-    return ans;
+  return ans;
 };
 
 /**

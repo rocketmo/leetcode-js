@@ -1,11 +1,11 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number} n
  * @return {boolean}
  */
 var canWinNim = function(n) {
-    return n % 4 !== 0;
+  return n % 4 !== 0;
 };
 
 assert.equal(canWinNim(4), false);

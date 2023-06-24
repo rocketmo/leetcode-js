@@ -1,4 +1,4 @@
-const { ListNode } = require("../other/definitions");
+const { ListNode } = require('../other/definitions');
 
 /**
  * First solution: Stack, requires O(k) memory
@@ -7,36 +7,36 @@ const { ListNode } = require("../other/definitions");
  * @return {ListNode}
  */
 var reverseKGroup = function(head, k) {
-    const stack = [];
-    let newHead = null;
-    let currNodeNew = null;
-    let currNodeOld = head;
+  const stack = [];
+  let newHead = null;
+  let currNodeNew = null;
+  let currNodeOld = head;
 
-    while (currNodeOld) {
-        stack.push(currNodeOld);
-        currNodeOld = currNodeOld.next;
+  while (currNodeOld) {
+    stack.push(currNodeOld);
+    currNodeOld = currNodeOld.next;
 
-        if (stack.length < k) {
-            continue;
-        }
-
-        while (stack.length > 0) {
-            if (!newHead) {
-                newHead = stack.pop();
-                newHead.next = null;
-                currNodeNew = newHead;
-            } else {
-                const next = stack.pop();
-                currNodeNew.next = next;
-                next.next = null;
-                currNodeNew = next;
-            }
-        }
-
-        currNodeNew.next = currNodeOld;
+    if (stack.length < k) {
+      continue;
     }
 
-    return newHead;
+    while (stack.length > 0) {
+      if (!newHead) {
+        newHead = stack.pop();
+        newHead.next = null;
+        currNodeNew = newHead;
+      } else {
+        const next = stack.pop();
+        currNodeNew.next = next;
+        next.next = null;
+        currNodeNew = next;
+      }
+    }
+
+    currNodeNew.next = currNodeOld;
+  }
+
+  return newHead;
 
 };
 
@@ -47,29 +47,29 @@ var reverseKGroup = function(head, k) {
  * @return {ListNode}
  */
 var reverseKGroup = function(head, k) {
-    let curr = head;
-    let count = 0;
+  let curr = head;
+  let count = 0;
 
-    while (curr && count !== k) {
-        curr = curr.next;
-        count++;
+  while (curr && count !== k) {
+    curr = curr.next;
+    count++;
+  }
+
+  if (count === k) {
+    curr = reverseKGroup(curr, k);
+
+    while (count > 0) {
+      const tmp = head.next;
+      head.next = curr;
+      curr = head;
+      head = tmp;
+      count -= 1;
     }
 
-    if (count === k) {
-        curr = reverseKGroup(curr, k);
+    head = curr;
+  }
 
-        while (count > 0) {
-            const tmp = head.next;
-            head.next = curr;
-            curr = head;
-            head = tmp;
-            count -= 1;
-        }
-
-        head = curr;
-    }
-
-    return head;
+  return head;
 };
 
 /**
@@ -81,34 +81,34 @@ var reverseKGroup = function(head, k) {
  * @return {ListNode}
  */
 var reverseKGroup = function(head, k) {
-    let dummy = new ListNode(0, head);
-    let prevGroupEnd = dummy;
-    let left = head, right = head, count = 0;
+  let dummy = new ListNode(0, head);
+  let prevGroupEnd = dummy;
+  let left = head, right = head, count = 0;
 
-    while (right) {
-        if (count < k) {
-            right = right.next;
-            count += 1;
-        }
-
-        if (count === k) {
-            let tmpLeft = left;
-            let tmpRight = right;
-
-            while (count > 0) {
-                const tmp = tmpLeft.next;
-                tmpLeft.next = tmpRight;
-                tmpRight = tmpLeft;
-                tmpLeft = tmp;
-                count -= 1;
-            }
-
-            prevGroupEnd.next = tmpRight;
-            prevGroupEnd = left;
-            left = right;
-
-        }
+  while (right) {
+    if (count < k) {
+      right = right.next;
+      count += 1;
     }
 
-    return dummy.next;
+    if (count === k) {
+      let tmpLeft = left;
+      let tmpRight = right;
+
+      while (count > 0) {
+        const tmp = tmpLeft.next;
+        tmpLeft.next = tmpRight;
+        tmpRight = tmpLeft;
+        tmpLeft = tmp;
+        count -= 1;
+      }
+
+      prevGroupEnd.next = tmpRight;
+      prevGroupEnd = left;
+      left = right;
+
+    }
+  }
+
+  return dummy.next;
 };

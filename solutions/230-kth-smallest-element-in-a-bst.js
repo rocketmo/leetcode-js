@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
 
 /**
  * Definition for a binary tree node.
@@ -15,19 +15,19 @@ const { convertArrayToBinaryTree } = require("../other/util");
  * @return {number}
  */
 var kthSmallest = function(root, k) {
-    const ordered = [];
-    inOrderTraversal(root);
-    return ordered[k - 1];
+  const ordered = [];
+  inOrderTraversal(root);
+  return ordered[k - 1];
 
-    function inOrderTraversal(node) {
-        if (!node || ordered.length >= k) {
-            return;
-        }
-
-        inOrderTraversal(node.left);
-        ordered.push(node.val);
-        inOrderTraversal(node.right);
+  function inOrderTraversal(node) {
+    if (!node || ordered.length >= k) {
+      return;
     }
+
+    inOrderTraversal(node.left);
+    ordered.push(node.val);
+    inOrderTraversal(node.right);
+  }
 };
 
 assert.equal(kthSmallest(convertArrayToBinaryTree([3,1,4,null,2]), 1), 1);

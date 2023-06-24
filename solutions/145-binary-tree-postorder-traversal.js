@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
 
 /**
  * Definition for a binary tree node.
@@ -14,19 +14,19 @@ const { convertArrayToBinaryTree } = require("../other/util");
  * @return {number[]}
  */
 var postorderTraversal = function(root) {
-    const ans = [];
-    helper(root);
-    return ans;
+  const ans = [];
+  helper(root);
+  return ans;
 
-    function helper(node) {
-        if (!node) {
-            return;
-        }
-
-        helper(node.left);
-        helper(node.right);
-        ans.push(node.val);
+  function helper(node) {
+    if (!node) {
+      return;
     }
+
+    helper(node.left);
+    helper(node.right);
+    ans.push(node.val);
+  }
 };
 
 assert.deepEqual(postorderTraversal(convertArrayToBinaryTree([1,null,2,3])), [3,2,1]);

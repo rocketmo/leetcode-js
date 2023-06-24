@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {string[]} word1
@@ -6,9 +6,9 @@ const assert = require("assert");
  * @return {boolean}
  */
 var arrayStringsAreEqual = function(word1, word2) {
-    return word1.join("") === word2.join("");
+  return word1.join('') === word2.join('');
 };
 
-assert(arrayStringsAreEqual(["ab", "c"], ["a", "bc"]));
-assert(arrayStringsAreEqual(["abc", "d", "defg"], ["abcddefg"]));
-assert.equal(arrayStringsAreEqual(["a", "cb"], ["ab", "c"]), false);
+assert(arrayStringsAreEqual(['ab', 'c'], ['a', 'bc']));
+assert(arrayStringsAreEqual(['abc', 'd', 'defg'], ['abcddefg']));
+assert.equal(arrayStringsAreEqual(['a', 'cb'], ['ab', 'c']), false);

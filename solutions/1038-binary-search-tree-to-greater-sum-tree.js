@@ -11,20 +11,20 @@
  * @return {TreeNode}
  */
 var bstToGst = function(root) {
-    let gSum = 0;
-    updateSum(root);
-    return root;
+  let gSum = 0;
+  updateSum(root);
+  return root;
 
-    function updateSum (node) {
-        if (!node) {
-            return;
-        }
-
-        updateSum(node.right);
-
-        gSum += node.val;
-        node.val = gSum;
-
-        updateSum(node.left);
+  function updateSum (node) {
+    if (!node) {
+      return;
     }
+
+    updateSum(node.right);
+
+    gSum += node.val;
+    node.val = gSum;
+
+    updateSum(node.left);
+  }
 };

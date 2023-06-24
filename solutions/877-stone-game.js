@@ -3,5 +3,5 @@
  * @return {boolean}
  */
 var stoneGame = function(piles) {
-    return true; // Alex always wins!
+  return true; // Alex always wins!
 };

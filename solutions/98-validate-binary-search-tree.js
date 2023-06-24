@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
 
 /**
  * Definition for a binary tree node.
@@ -14,19 +14,19 @@ const { convertArrayToBinaryTree } = require("../other/util");
  * @return {boolean}
  */
 var isValidBST = function(root) {
-    return helper(root, null, null);
+  return helper(root, null, null);
 
-    function helper(node, minVal, maxVal) {
-        if (!node) {
-            return true;
-        }
-
-        if ((minVal !== null && node.val <= minVal) || (maxVal !== null && node.val >= maxVal)) {
-            return false;
-        }
-
-        return helper(node.left, minVal, node.val) && helper(node.right, node.val, maxVal);
+  function helper(node, minVal, maxVal) {
+    if (!node) {
+      return true;
     }
+
+    if ((minVal !== null && node.val <= minVal) || (maxVal !== null && node.val >= maxVal)) {
+      return false;
+    }
+
+    return helper(node.left, minVal, node.val) && helper(node.right, node.val, maxVal);
+  }
 };
 
 assert.equal(isValidBST(convertArrayToBinaryTree([2,1,3])), true);

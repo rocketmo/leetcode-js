@@ -1,15 +1,15 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
 
 function getHeight(root) {
-    let height = 0;
+  let height = 0;
 
-    while (root) {
-        root = root.left;
-        height += 1;
-    }
+  while (root) {
+    root = root.left;
+    height += 1;
+  }
 
-    return height;
+  return height;
 }
 
 /**
@@ -25,18 +25,18 @@ function getHeight(root) {
  * @return {number}
  */
 var countNodes = function(root) {
-    if (!root) {
-        return 0;
-    }
+  if (!root) {
+    return 0;
+  }
 
-    const leftHeight = getHeight(root.left);
-    const rightHeight = getHeight(root.right);
+  const leftHeight = getHeight(root.left);
+  const rightHeight = getHeight(root.right);
 
-    if (leftHeight === rightHeight) {
-        return (2 ** leftHeight) + countNodes(root.right);
-    }
+  if (leftHeight === rightHeight) {
+    return (2 ** leftHeight) + countNodes(root.right);
+  }
 
-    return (2 ** rightHeight) + countNodes(root.left);
+  return (2 ** rightHeight) + countNodes(root.left);
 };
 
 assert.equal(countNodes(convertArrayToBinaryTree([1,2,3,4,5,6])), 6);

@@ -1,4 +1,4 @@
-const { TreeNode } = require("../other/definitions");
+const { TreeNode } = require('../other/definitions');
 
 /**
  * Definition for a binary tree node.
@@ -14,23 +14,23 @@ const { TreeNode } = require("../other/definitions");
  * @return {TreeNode}
  */
 var buildTree = function(inorder, postorder) {
-    const orderMap = new Map();
-    for (let i = 0; i < inorder.length; i += 1) {
-        orderMap.set(inorder[i], i);
+  const orderMap = new Map();
+  for (let i = 0; i < inorder.length; i += 1) {
+    orderMap.set(inorder[i], i);
+  }
+
+  return helper(0, inorder.length, 0, postorder.length);
+
+  function helper(inStart, inEnd, postStart, postEnd) {
+    if (postEnd <= postStart) {
+      return null;
     }
 
-    return helper(0, inorder.length, 0, postorder.length);
+    const idx = orderMap.get(postorder[postEnd - 1]);
+    const root = new TreeNode(inorder[idx]);
+    root.left = helper(inStart, idx, postStart, postStart + idx - inStart);
+    root.right = helper(idx + 1, inEnd, postEnd - inEnd + idx, postEnd - 1);
 
-    function helper(inStart, inEnd, postStart, postEnd) {
-        if (postEnd <= postStart) {
-            return null;
-        }
-
-        const idx = orderMap.get(postorder[postEnd - 1]);
-        const root = new TreeNode(inorder[idx]);
-        root.left = helper(inStart, idx, postStart, postStart + idx - inStart);
-        root.right = helper(idx + 1, inEnd, postEnd - inEnd + idx, postEnd - 1);
-
-        return root;
-    }
+    return root;
+  }
 };

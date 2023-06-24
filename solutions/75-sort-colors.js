@@ -1,36 +1,36 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var sortColors = function(nums) {
-    let redCount = 0;
-    let whiteCount = 0;
-    let blueCount = 0;
+  let redCount = 0;
+  let whiteCount = 0;
+  let blueCount = 0;
 
-    for (let i = 0; i < nums.length - blueCount; i += 1) {
-        const color = nums[i];
+  for (let i = 0; i < nums.length - blueCount; i += 1) {
+    const color = nums[i];
 
-        if (color === 0) { // red
-            if (whiteCount > 0) {
-                nums[redCount] = 0;
-                nums[i] = 1;
-            }
+    if (color === 0) { // red
+      if (whiteCount > 0) {
+        nums[redCount] = 0;
+        nums[i] = 1;
+      }
 
-            redCount += 1;
-        } else if (color === 2) { // blue
-            if (i !== nums.length - blueCount - 1) {
-                nums[i] = nums[nums.length - blueCount - 1];
-                nums[nums.length - blueCount - 1] = 2;
-                i -= 1;
-            }
+      redCount += 1;
+    } else if (color === 2) { // blue
+      if (i !== nums.length - blueCount - 1) {
+        nums[i] = nums[nums.length - blueCount - 1];
+        nums[nums.length - blueCount - 1] = 2;
+        i -= 1;
+      }
 
-            blueCount += 1;
-        } else { // white
-            whiteCount += 1;
-        }
+      blueCount += 1;
+    } else { // white
+      whiteCount += 1;
     }
+  }
 };
 
 const nums1 = [2,0,2,1,1,0];

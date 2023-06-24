@@ -12,38 +12,38 @@
  * @return {number}
  */
 var goodNodes = function(root) {
-    const stack = [{
-        node: root,
-        max: null
-    }];
+  const stack = [{
+    node: root,
+    max: null
+  }];
 
-    let ans = 0;
-    while (stack.length) {
-        let { node, max } = stack.pop();
+  let ans = 0;
+  while (stack.length) {
+    let { node, max } = stack.pop();
 
-        if (!node) {
-            continue;
-        }
-
-        if (max === null || node.val >= max) {
-            max = node.val;
-            ans += 1;
-        }
-
-        if (node.left) {
-            stack.push({
-                node: node.left,
-                max
-            });
-        }
-
-        if (node.right) {
-            stack.push({
-                node: node.right,
-                max
-            });
-        }
+    if (!node) {
+      continue;
     }
 
-    return ans;
+    if (max === null || node.val >= max) {
+      max = node.val;
+      ans += 1;
+    }
+
+    if (node.left) {
+      stack.push({
+        node: node.left,
+        max
+      });
+    }
+
+    if (node.right) {
+      stack.push({
+        node: node.right,
+        max
+      });
+    }
+  }
+
+  return ans;
 };

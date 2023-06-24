@@ -4,7 +4,7 @@
  * @return {string}
  */
 var toLowerCase = function(s) {
-    return s.toLowerCase();
+  return s.toLowerCase();
 };
 
 /**
@@ -13,20 +13,20 @@ var toLowerCase = function(s) {
  * @return {string}
  */
 var toLowerCase = function(s) {
-    const lowerCode = "A".charCodeAt(0);
-    const upperCode = "Z".charCodeAt(0);
-    const diff = "a".charCodeAt(0) - lowerCode;
+  const lowerCode = 'A'.charCodeAt(0);
+  const upperCode = 'Z'.charCodeAt(0);
+  const diff = 'a'.charCodeAt(0) - lowerCode;
 
-    let newStr = "";
-    for (let i = 0; i < s.length; i += 1) {
-        const currCharCode = s.charCodeAt(i);
-        if (currCharCode >= lowerCode && currCharCode <= upperCode) {
-            const nextCharCode = currCharCode + diff;
-            newStr += String.fromCharCode(nextCharCode);
-        } else {
-            newStr += s[i];
-        }
+  let newStr = '';
+  for (let i = 0; i < s.length; i += 1) {
+    const currCharCode = s.charCodeAt(i);
+    if (currCharCode >= lowerCode && currCharCode <= upperCode) {
+      const nextCharCode = currCharCode + diff;
+      newStr += String.fromCharCode(nextCharCode);
+    } else {
+      newStr += s[i];
     }
+  }
 
-    return newStr;
+  return newStr;
 };

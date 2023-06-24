@@ -4,23 +4,23 @@
  * @return {string}
  */
 var orderlyQueue = function(s, k) {
-    if (k === 1) {
-        let ans = s;
-        for (let i = 1; i < s.length; i += 1) {
-            let tmp = s.slice(i) + s.slice(0, i);
+  if (k === 1) {
+    let ans = s;
+    for (let i = 1; i < s.length; i += 1) {
+      let tmp = s.slice(i) + s.slice(0, i);
 
-            if (tmp < ans) {
-                ans = tmp;
-            }
-        }
-
-        return ans;
+      if (tmp < ans) {
+        ans = tmp;
+      }
     }
 
-    const split = s.split("");
-    split.sort((a, b) => {
-        return a < b ? -1 : 1;
-    });
+    return ans;
+  }
 
-    return split.join("");
+  const split = s.split('');
+  split.sort((a, b) => {
+    return a < b ? -1 : 1;
+  });
+
+  return split.join('');
 };

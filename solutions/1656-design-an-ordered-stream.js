@@ -1,11 +1,11 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number} n
  */
 var OrderedStream = function(n) {
-    this.stream = Array(n);
-    this.idx = 0;
+  this.stream = Array(n);
+  this.idx = 0;
 };
 
 /**
@@ -14,15 +14,15 @@ var OrderedStream = function(n) {
  * @return {string[]}
  */
 OrderedStream.prototype.insert = function(idKey, value) {
-    const ret = [];
-    this.stream[idKey - 1] = value;
+  const ret = [];
+  this.stream[idKey - 1] = value;
 
-    while (this.stream[this.idx]) {
-        ret.push(this.stream[this.idx]);
-        this.idx += 1;
-    }
+  while (this.stream[this.idx]) {
+    ret.push(this.stream[this.idx]);
+    this.idx += 1;
+  }
 
-    return ret;
+  return ret;
 };
 
 /**
@@ -32,8 +32,8 @@ OrderedStream.prototype.insert = function(idKey, value) {
  */
 
 const os = new OrderedStream(5);
-assert.deepEqual(os.insert(3, "ccccc"), []);
-assert.deepEqual(os.insert(1, "aaaaa"), ["aaaaa"]);
-assert.deepEqual(os.insert(2, "bbbbb"), ["bbbbb", "ccccc"]);
-assert.deepEqual(os.insert(5, "eeeee"), []);
-assert.deepEqual(os.insert(4, "ddddd"), ["ddddd", "eeeee"]);
+assert.deepEqual(os.insert(3, 'ccccc'), []);
+assert.deepEqual(os.insert(1, 'aaaaa'), ['aaaaa']);
+assert.deepEqual(os.insert(2, 'bbbbb'), ['bbbbb', 'ccccc']);
+assert.deepEqual(os.insert(5, 'eeeee'), []);
+assert.deepEqual(os.insert(4, 'ddddd'), ['ddddd', 'eeeee']);

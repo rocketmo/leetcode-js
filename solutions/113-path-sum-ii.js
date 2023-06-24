@@ -13,28 +13,28 @@
  * @return {number[][]}
  */
 var pathSum = function(root, targetSum) {
-    return dfs(root, 0, []);
+  return dfs(root, 0, []);
 
-    function dfs(currNode, currSum, currPath) {
+  function dfs(currNode, currSum, currPath) {
 
-        if (!currNode) {
-            return [];
-        } else if (currSum + currNode.val === targetSum && !currNode.left && !currNode.right) {
-            return [ [ ...currPath, currNode.val ] ];
-        }
-
-        const paths = [];
-
-        if (currNode.left) {
-            paths.push(...dfs(currNode.left, currSum + currNode.val,
-                [ ...currPath, currNode.val] ));
-        }
-
-        if (currNode.right) {
-            paths.push(...dfs(currNode.right, currSum + currNode.val,
-                [ ...currPath, currNode.val] ));
-        }
-
-        return paths;
+    if (!currNode) {
+      return [];
+    } else if (currSum + currNode.val === targetSum && !currNode.left && !currNode.right) {
+      return [ [ ...currPath, currNode.val ] ];
     }
+
+    const paths = [];
+
+    if (currNode.left) {
+      paths.push(...dfs(currNode.left, currSum + currNode.val,
+        [ ...currPath, currNode.val] ));
+    }
+
+    if (currNode.right) {
+      paths.push(...dfs(currNode.right, currSum + currNode.val,
+        [ ...currPath, currNode.val] ));
+    }
+
+    return paths;
+  }
 };

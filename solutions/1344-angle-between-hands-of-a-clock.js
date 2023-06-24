@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number} hour
@@ -6,16 +6,16 @@ const assert = require("assert");
  * @return {number}
  */
 var angleClock = function(hour, minutes) {
-    const minAngle = minutes * 6;
-    const hourAngle = ((hour % 12) + (minutes / 60)) * 30;
+  const minAngle = minutes * 6;
+  const hourAngle = ((hour % 12) + (minutes / 60)) * 30;
 
-    const diff = Math.abs(hourAngle - minAngle);
+  const diff = Math.abs(hourAngle - minAngle);
 
-    if (diff > 180) {
-        return 360 - diff;
-    }
+  if (diff > 180) {
+    return 360 - diff;
+  }
 
-    return diff;
+  return diff;
 };
 
 assert.equal(angleClock(12, 30), 165);

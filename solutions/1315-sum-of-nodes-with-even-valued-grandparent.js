@@ -11,23 +11,23 @@
  * @return {number}
  */
 var sumEvenGrandparent = function(root) {
-    let ans = 0;
-    const stack = [ { node: root, isParentEven: false, isGrandParentEven: false } ];
+  let ans = 0;
+  const stack = [ { node: root, isParentEven: false, isGrandParentEven: false } ];
 
-    while (stack.length) {
-        const { node, isParentEven, isGrandParentEven } = stack.pop();
-        if (!node) { continue; }
+  while (stack.length) {
+    const { node, isParentEven, isGrandParentEven } = stack.pop();
+    if (!node) { continue; }
 
-        if (isGrandParentEven) {
-            ans += node.val;
-        }
-
-        const isEven = node.val % 2 === 0;
-        stack.push(
-            { node: node.left, isParentEven: isEven, isGrandParentEven: isParentEven },
-            { node: node.right, isParentEven: isEven, isGrandParentEven: isParentEven }
-        );
+    if (isGrandParentEven) {
+      ans += node.val;
     }
 
-    return ans;
+    const isEven = node.val % 2 === 0;
+    stack.push(
+      { node: node.left, isParentEven: isEven, isGrandParentEven: isParentEven },
+      { node: node.right, isParentEven: isEven, isGrandParentEven: isParentEven }
+    );
+  }
+
+  return ans;
 };

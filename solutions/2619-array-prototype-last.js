@@ -1,11 +1,11 @@
-const assert = require("assert");
+const assert = require('assert');
 
 Array.prototype.last = function() {
-    if (this.length) {
-        return this[this.length - 1];
-    }
+  if (this.length) {
+    return this[this.length - 1];
+  }
 
-    return -1;
+  return -1;
 };
 
 const arr1 = [1, 2, 3];

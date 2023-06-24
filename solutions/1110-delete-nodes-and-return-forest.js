@@ -12,34 +12,34 @@
  * @return {TreeNode[]}
  */
 var delNodes = function(root, to_delete) {
-    const ans = [];
-    const deleteSet = new Set(to_delete);
-    helper(root, null);
-    return ans;
+  const ans = [];
+  const deleteSet = new Set(to_delete);
+  helper(root, null);
+  return ans;
 
-    function helper(node, parent, isLeft) {
-        if (!node) {
-            return;
-        }
-
-        if (deleteSet.has(node.val)) {
-            if (parent) {
-                if (isLeft) {
-                    parent.left = null;
-                } else {
-                    parent.right = null;
-                }
-            }
-
-            helper(node.left, null);
-            helper(node.right, null);
-        } else {
-            if (!parent) {
-                ans.push(node);
-            }
-
-            helper(node.left, node, true);
-            helper(node.right, node, false);
-        }
+  function helper(node, parent, isLeft) {
+    if (!node) {
+      return;
     }
+
+    if (deleteSet.has(node.val)) {
+      if (parent) {
+        if (isLeft) {
+          parent.left = null;
+        } else {
+          parent.right = null;
+        }
+      }
+
+      helper(node.left, null);
+      helper(node.right, null);
+    } else {
+      if (!parent) {
+        ans.push(node);
+      }
+
+      helper(node.left, node, true);
+      helper(node.right, node, false);
+    }
+  }
 };

@@ -1,6 +1,6 @@
-const assert = require("assert");
-const { ListNode } = require("../other/definitions");
-const { convertArrayToList } = require("../other/util");
+const assert = require('assert');
+const { ListNode } = require('../other/definitions');
+const { convertArrayToList } = require('../other/util');
 
 /**
  * Definition for singly-linked list.
@@ -14,23 +14,23 @@ const { convertArrayToList } = require("../other/util");
  * @return {ListNode}
  */
 var deleteDuplicates = function(head) {
-    const tmpHead = new ListNode(null);
-    tmpHead.next = head;
+  const tmpHead = new ListNode(null);
+  tmpHead.next = head;
 
-    let prev = tmpHead;
-    let curr = head;
+  let prev = tmpHead;
+  let curr = head;
 
-    while (curr) {
-        if (curr.val === prev.val) {
-            prev.next = curr.next;
-            curr = curr.next;
-        } else {
-            prev = curr;
-            curr = prev.next;
-        }
+  while (curr) {
+    if (curr.val === prev.val) {
+      prev.next = curr.next;
+      curr = curr.next;
+    } else {
+      prev = curr;
+      curr = prev.next;
     }
+  }
 
-    return tmpHead.next;
+  return tmpHead.next;
 };
 
 const list1 = convertArrayToList([1,1,2]);

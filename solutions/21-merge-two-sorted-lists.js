@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToList, convertListToArray } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToList, convertListToArray } = require('../other/util');
 
 /**
  * Definition for singly-linked list.
@@ -15,41 +15,41 @@ const { convertArrayToList, convertListToArray } = require("../other/util");
  * @return {ListNode}
  */
 var mergeTwoLists = function(l1, l2) {
-    let currNode1 = l1;
-    let currNode2 = l2;
-    let newListHead = null;
-    let lastListNode = null;
+  let currNode1 = l1;
+  let currNode2 = l2;
+  let newListHead = null;
+  let lastListNode = null;
 
-    while (currNode1 || currNode2) {
-        let nextNode;
+  while (currNode1 || currNode2) {
+    let nextNode;
 
-        if (!currNode1) {
-            nextNode = currNode2;
-            currNode2 = currNode2.next;
-        } else if (!currNode2) {
-            nextNode = currNode1;
-            currNode1 = currNode1.next;
-        } else if (currNode1.val < currNode2.val) {
-            nextNode = currNode1;
-            currNode1 = currNode1.next;
-        } else {
-            nextNode = currNode2;
-            currNode2 = currNode2.next;
-        }
-
-        if (!newListHead) {
-            newListHead = nextNode;
-        }
-
-        if (lastListNode) {
-            lastListNode.next = nextNode;
-        }
-
-        nextNode.next = null;
-        lastListNode = nextNode;
+    if (!currNode1) {
+      nextNode = currNode2;
+      currNode2 = currNode2.next;
+    } else if (!currNode2) {
+      nextNode = currNode1;
+      currNode1 = currNode1.next;
+    } else if (currNode1.val < currNode2.val) {
+      nextNode = currNode1;
+      currNode1 = currNode1.next;
+    } else {
+      nextNode = currNode2;
+      currNode2 = currNode2.next;
     }
 
-    return newListHead;
+    if (!newListHead) {
+      newListHead = nextNode;
+    }
+
+    if (lastListNode) {
+      lastListNode.next = nextNode;
+    }
+
+    nextNode.next = null;
+    lastListNode = nextNode;
+  }
+
+  return newListHead;
 };
 
 const test1 = mergeTwoLists(convertArrayToList([1,2,4]), convertArrayToList([1,3,4]));

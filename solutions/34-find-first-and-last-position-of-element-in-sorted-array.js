@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number[]} nums
@@ -6,52 +6,52 @@ const assert = require("assert");
  * @return {number[]}
  */
 var searchRange = function(nums, target) {
-    let startIdx = -1;
-    let endIdx = -1;
+  let startIdx = -1;
+  let endIdx = -1;
 
-    const [targetPos, left, right] = find(0, nums.length);
-    if (targetPos !== -1) {
-        startIdx = findStartIdx(left, targetPos, targetPos);
-        endIdx = findEndIdx(targetPos + 1, right, targetPos);
+  const [targetPos, left, right] = find(0, nums.length);
+  if (targetPos !== -1) {
+    startIdx = findStartIdx(left, targetPos, targetPos);
+    endIdx = findEndIdx(targetPos + 1, right, targetPos);
+  }
+
+  return [startIdx, endIdx];
+
+  function find(left, right) {
+    while (left < right) {
+      const mid = Math.floor((left + right) / 2);
+
+      if (nums[mid] === target) {
+        return [mid, left, right];
+      } else if (nums[mid] < target) {
+        left = mid + 1;
+      } else {
+        right = mid;
+      }
     }
 
-    return [startIdx, endIdx];
+    return [-1, left, right];
+  }
 
-    function find(left, right) {
-        while (left < right) {
-            const mid = Math.floor((left + right) / 2);
+  function findStartIdx(left, right, prevStartIdx) {
+    const [targetPos, newLeft] = find(left, right);
 
-            if (nums[mid] === target) {
-                return [mid, left, right];
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
-        }
-
-        return [-1, left, right];
+    if (targetPos === -1) {
+      return prevStartIdx;
     }
 
-    function findStartIdx(left, right, prevStartIdx) {
-        const [targetPos, newLeft] = find(left, right);
+    return findStartIdx(newLeft, targetPos, targetPos);
+  }
 
-        if (targetPos === -1) {
-            return prevStartIdx;
-        }
+  function findEndIdx(left, right, prevStartIdx) {
+    const [targetPos, newLeft, newRight] = find(left, right);
 
-        return findStartIdx(newLeft, targetPos, targetPos);
+    if (targetPos === -1) {
+      return prevStartIdx;
     }
 
-    function findEndIdx(left, right, prevStartIdx) {
-        const [targetPos, newLeft, newRight] = find(left, right);
-
-        if (targetPos === -1) {
-            return prevStartIdx;
-        }
-
-        return findEndIdx(targetPos + 1, newRight, targetPos);
-    }
+    return findEndIdx(targetPos + 1, newRight, targetPos);
+  }
 };
 
 assert.deepEqual(searchRange([5,7,7,8,8,10], 8), [3,4]);

@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number[]} nums
@@ -6,19 +6,19 @@ const assert = require("assert");
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    const numSet = new Map();
+  const numSet = new Map();
 
-    for (let i = 0; i < nums.length; i += 1) {
-        const diff = target - nums[i];
+  for (let i = 0; i < nums.length; i += 1) {
+    const diff = target - nums[i];
 
-        if (numSet.has(diff)) {
-            return [numSet.get(diff), i];
-        }
-
-        numSet.set(nums[i], i);
+    if (numSet.has(diff)) {
+      return [numSet.get(diff), i];
     }
 
-    return [-1, -1];
+    numSet.set(nums[i], i);
+  }
+
+  return [-1, -1];
 };
 
 const arr1 = [2, 7, 11, 15];

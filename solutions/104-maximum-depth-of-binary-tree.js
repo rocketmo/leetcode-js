@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
 
 /**
  * Definition for a binary tree node.
@@ -14,22 +14,22 @@ const { convertArrayToBinaryTree } = require("../other/util");
  * @return {number}
  */
 var maxDepth = function(root) {
-    let ans = 0;
-    const stack = [ { node: root, depth: 0 } ];
+  let ans = 0;
+  const stack = [ { node: root, depth: 0 } ];
 
-    while (stack.length) {
-        const { node, depth } = stack.pop();
+  while (stack.length) {
+    const { node, depth } = stack.pop();
 
-        if (node) {
-            ans = Math.max(ans, depth + 1);
-            stack.push(
-                { node: node.left, depth: depth + 1 },
-                { node: node.right, depth: depth + 1 }
-            );
-        }
+    if (node) {
+      ans = Math.max(ans, depth + 1);
+      stack.push(
+        { node: node.left, depth: depth + 1 },
+        { node: node.right, depth: depth + 1 }
+      );
     }
+  }
 
-    return ans;
+  return ans;
 };
 
 assert.equal(maxDepth(convertArrayToBinaryTree([3,9,20,null,null,15,7])), 3);

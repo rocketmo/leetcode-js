@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
 
 /**
  * Definition for a binary tree node.
@@ -14,22 +14,22 @@ const { convertArrayToBinaryTree } = require("../other/util");
  * @return {number}
  */
 var diameterOfBinaryTree = function(root) {
-    let ans = 0;
-    findDiameter(root);
+  let ans = 0;
+  findDiameter(root);
 
-    return ans;
+  return ans;
 
-    function findDiameter(node) {
-        if (!node) {
-            return 0;
-        }
-
-        const leftLen = findDiameter(node.left);
-        const rightLen = findDiameter(node.right);
-        ans = Math.max(ans, leftLen + rightLen);
-
-        return Math.max(leftLen, rightLen) + 1;
+  function findDiameter(node) {
+    if (!node) {
+      return 0;
     }
+
+    const leftLen = findDiameter(node.left);
+    const rightLen = findDiameter(node.right);
+    ans = Math.max(ans, leftLen + rightLen);
+
+    return Math.max(leftLen, rightLen) + 1;
+  }
 };
 
 assert.equal(diameterOfBinaryTree(convertArrayToBinaryTree([1,2,3,4,5])), 3);

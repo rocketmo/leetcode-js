@@ -2,7 +2,7 @@
  * @param {number[][]} rectangle
  */
 var SubrectangleQueries = function(rectangle) {
-    this.rectangle = rectangle;
+  this.rectangle = rectangle;
 };
 
 /**
@@ -14,11 +14,11 @@ var SubrectangleQueries = function(rectangle) {
  * @return {void}
  */
 SubrectangleQueries.prototype.updateSubrectangle = function(row1, col1, row2, col2, newValue) {
-    for (let i = row1; i <= row2; i += 1) {
-        for (let j = col1; j <= col2; j += 1) {
-            this.rectangle[i][j] = newValue;
-        }
+  for (let i = row1; i <= row2; i += 1) {
+    for (let j = col1; j <= col2; j += 1) {
+      this.rectangle[i][j] = newValue;
     }
+  }
 };
 
 /**
@@ -27,7 +27,7 @@ SubrectangleQueries.prototype.updateSubrectangle = function(row1, col1, row2, co
  * @return {number}
  */
 SubrectangleQueries.prototype.getValue = function(row, col) {
-    return this.rectangle[row][col];
+  return this.rectangle[row][col];
 };
 
 /**

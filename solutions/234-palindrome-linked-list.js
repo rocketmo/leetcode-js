@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToList } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToList } = require('../other/util');
 
 /**
  * Definition for singly-linked list.
@@ -13,27 +13,27 @@ const { convertArrayToList } = require("../other/util");
  * @return {boolean}
  */
 var isPalindrome = function(head) {
-    const arr = [];
-    let curr = head;
+  const arr = [];
+  let curr = head;
 
-    while (curr) {
-        arr.push(curr.val);
-        curr = curr.next;
+  while (curr) {
+    arr.push(curr.val);
+    curr = curr.next;
+  }
+
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    if (arr[left] !== arr[right]) {
+      return false;
     }
 
-    let left = 0;
-    let right = arr.length - 1;
+    left += 1;
+    right -= 1;
+  }
 
-    while (left < right) {
-        if (arr[left] !== arr[right]) {
-            return false;
-        }
-
-        left += 1;
-        right -= 1;
-    }
-
-    return true;
+  return true;
 };
 
 assert(isPalindrome(convertArrayToList([1,2,2,1])));

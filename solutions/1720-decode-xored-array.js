@@ -4,12 +4,12 @@
  * @return {number[]}
  */
 var decode = function(encoded, first) {
-    const decoded = [ first ];
+  const decoded = [ first ];
 
-    for (const num of encoded) {
-        const prev = decoded[decoded.length - 1];
-        decoded.push(prev ^ num);
-    }
+  for (const num of encoded) {
+    const prev = decoded[decoded.length - 1];
+    decoded.push(prev ^ num);
+  }
 
-    return decoded;
+  return decoded;
 };

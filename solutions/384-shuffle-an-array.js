@@ -2,7 +2,7 @@
  * @param {number[]} nums
  */
 var Solution = function(nums) {
-    this.nums = nums;
+  this.nums = nums;
 };
 
 /**
@@ -10,7 +10,7 @@ var Solution = function(nums) {
  * @return {number[]}
  */
 Solution.prototype.reset = function() {
-    return this.nums;
+  return this.nums;
 };
 
 /**
@@ -18,17 +18,17 @@ Solution.prototype.reset = function() {
  * @return {number[]}
  */
 Solution.prototype.shuffle = function() {
-    const arr = [ ...this.nums ];
+  const arr = [ ...this.nums ];
 
-    // Fisher-Yates Algorithm
-    for (let i = 0; i < arr.length; i += 1) {
-        const swapIndex = Math.floor(Math.random() * (arr.length - i)) + i;
-        let tmp = arr[i];
-        arr[i] = arr[swapIndex];
-        arr[swapIndex] = tmp;
-    }
+  // Fisher-Yates Algorithm
+  for (let i = 0; i < arr.length; i += 1) {
+    const swapIndex = Math.floor(Math.random() * (arr.length - i)) + i;
+    let tmp = arr[i];
+    arr[i] = arr[swapIndex];
+    arr[swapIndex] = tmp;
+  }
 
-    return arr;
+  return arr;
 };
 
 /**

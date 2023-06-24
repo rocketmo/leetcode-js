@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * First solution: Naive
@@ -7,17 +7,17 @@ const assert = require("assert");
  * @return {number}
  */
 var rangeBitwiseAnd = function(left, right) {
-    let ans = left;
+  let ans = left;
 
-    for (let i = left + 1; i <= right; i += 1) {
-        ans &= i;
+  for (let i = left + 1; i <= right; i += 1) {
+    ans &= i;
 
-        if (ans === 0) {
-            break;
-        }
+    if (ans === 0) {
+      break;
     }
+  }
 
-    return ans;
+  return ans;
 };
 
 /**
@@ -27,11 +27,11 @@ var rangeBitwiseAnd = function(left, right) {
  * @return {number}
  */
 var rangeBitwiseAnd = function(left, right) {
-    while (right > left) {
-        right = right & (right - 1);
-    }
+  while (right > left) {
+    right = right & (right - 1);
+  }
 
-    return left & right;
+  return left & right;
 };
 
 assert.equal(rangeBitwiseAnd(5, 7), 4);

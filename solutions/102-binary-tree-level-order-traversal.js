@@ -1,6 +1,6 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
-const { Queue } = require("@datastructures-js/queue");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
+const { Queue } = require('@datastructures-js/queue');
 
 /**
  * Definition for a binary tree node.
@@ -15,29 +15,29 @@ const { Queue } = require("@datastructures-js/queue");
  * @return {number[][]}
  */
 var levelOrder = function(root) {
-    const queue = new Queue([ { node: root, level: 0 } ]);
-    const ans = [];
+  const queue = new Queue([ { node: root, level: 0 } ]);
+  const ans = [];
 
-    while (queue.size() > 0) {
-        const { node, level } = queue.dequeue();
+  while (queue.size() > 0) {
+    const { node, level } = queue.dequeue();
 
-        if (!node) {
-            continue;
-        }
-
-        if (!ans[level]) {
-            ans[level] = [];
-        }
-
-        ans[level].push(node.val);
-        queue.enqueue({ node: node.left, level: level + 1 });
-        queue.enqueue({ node: node.right, level: level + 1 });
+    if (!node) {
+      continue;
     }
 
-    return ans;
+    if (!ans[level]) {
+      ans[level] = [];
+    }
+
+    ans[level].push(node.val);
+    queue.enqueue({ node: node.left, level: level + 1 });
+    queue.enqueue({ node: node.right, level: level + 1 });
+  }
+
+  return ans;
 };
 
 assert.deepEqual(levelOrder(convertArrayToBinaryTree([3,9,20,null,null,15,7])),
-    [[3],[9,20],[15,7]]);
+  [[3],[9,20],[15,7]]);
 assert.deepEqual(levelOrder(convertArrayToBinaryTree([1])), [[1]]);
 assert.deepEqual(levelOrder(convertArrayToBinaryTree([])), []);

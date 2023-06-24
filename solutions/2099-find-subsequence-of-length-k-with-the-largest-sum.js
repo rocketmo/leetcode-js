@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { sum } = require("lodash");
+const assert = require('assert');
+const { sum } = require('lodash');
 
 /**
  * @param {number[]} nums
@@ -7,15 +7,15 @@ const { sum } = require("lodash");
  * @return {number[]}
  */
 var maxSubsequence = function(nums, k) {
-    const numsWithIdx = nums.map((num, idx) => {
-        return { idx, val: num };
-    });
+  const numsWithIdx = nums.map((num, idx) => {
+    return { idx, val: num };
+  });
 
-    numsWithIdx.sort((a, b) => b.val - a.val);
+  numsWithIdx.sort((a, b) => b.val - a.val);
 
-    const topNums = numsWithIdx.slice(0, k);
-    topNums.sort((a, b) => a.idx - b.idx);
-    return topNums.map(numWithIdx => numWithIdx.val);
+  const topNums = numsWithIdx.slice(0, k);
+  topNums.sort((a, b) => a.idx - b.idx);
+  return topNums.map(numWithIdx => numWithIdx.val);
 };
 
 assert(sum(maxSubsequence([2,1,3,3], 2)), 6);

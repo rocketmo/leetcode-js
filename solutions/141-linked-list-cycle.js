@@ -12,17 +12,17 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    let slowNode = head;
-    let fastNode = head;
+  let slowNode = head;
+  let fastNode = head;
 
-    while (slowNode?.next && fastNode?.next?.next) {
-        slowNode = slowNode.next;
-        fastNode = fastNode.next.next;
+  while (slowNode?.next && fastNode?.next?.next) {
+    slowNode = slowNode.next;
+    fastNode = fastNode.next.next;
 
-        if (slowNode === fastNode) {
-            return true;
-        }
+    if (slowNode === fastNode) {
+      return true;
     }
+  }
 
-    return false;
+  return false;
 };

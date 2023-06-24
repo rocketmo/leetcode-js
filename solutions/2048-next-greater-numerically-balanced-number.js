@@ -4,32 +4,32 @@
  * @return {number}
  */
 var nextBeautifulNumber = function(n) {
+  n += 1;
+
+  while (true) {
+    if (isBeautiful(n)) {
+      return n;
+    }
+
     n += 1;
+  }
 
-    while (true) {
-        if (isBeautiful(n)) {
-            return n;
-        }
+  function isBeautiful(num) {
+    const digitMap = new Map();
 
-        n += 1;
+    while (num > 0) {
+      const digit = num % 10;
+      const digitCount = digitMap.get(digit) ?? 0;
+      digitMap.set(digit, digitCount + 1);
+      num = Math.floor(num / 10);
     }
 
-    function isBeautiful(num) {
-        const digitMap = new Map();
-
-        while (num > 0) {
-            const digit = num % 10;
-            const digitCount = digitMap.get(digit) ?? 0;
-            digitMap.set(digit, digitCount + 1);
-            num = Math.floor(num / 10);
-        }
-
-        for (const digit of digitMap.keys()) {
-            if (digit !== digitMap.get(digit)) {
-                return false;
-            }
-        }
-
-        return true;
+    for (const digit of digitMap.keys()) {
+      if (digit !== digitMap.get(digit)) {
+        return false;
+      }
     }
+
+    return true;
+  }
 };

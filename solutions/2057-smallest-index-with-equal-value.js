@@ -1,17 +1,17 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number[]} nums
  * @return {number}
  */
 var smallestEqual = function(nums) {
-    for (let i = 0; i < nums.length; i += 1) {
-        if (i % 10 === nums[i]) {
-            return i;
-        }
+  for (let i = 0; i < nums.length; i += 1) {
+    if (i % 10 === nums[i]) {
+      return i;
     }
+  }
 
-    return -1;
+  return -1;
 };
 
 assert.equal(smallestEqual([0,1,2]), 0);

@@ -1,6 +1,6 @@
-const assert = require("assert");
-const { TreeNode } = require("../other/definitions");
-const { convertBinaryTreeToArray } = require("../other/util");
+const assert = require('assert');
+const { TreeNode } = require('../other/definitions');
+const { convertBinaryTreeToArray } = require('../other/util');
 
 /**
  * Definition for a binary tree node.
@@ -15,32 +15,32 @@ const { convertBinaryTreeToArray } = require("../other/util");
  * @return {TreeNode}
  */
 var bstFromPreorder = function(preorder) {
-    let head = null;
-    const stack = [];
+  let head = null;
+  const stack = [];
 
-    for (const val of preorder) {
-        const node = new TreeNode(val);
-        if (!head) {
-            head = node;
-        } else if (val < peakLast().val) {
-            peakLast().left = node;
-        } else {
-            let parentNode = stack.pop();
-            while (stack.length && peakLast().val < val) {
-                parentNode = stack.pop();
-            }
+  for (const val of preorder) {
+    const node = new TreeNode(val);
+    if (!head) {
+      head = node;
+    } else if (val < peakLast().val) {
+      peakLast().left = node;
+    } else {
+      let parentNode = stack.pop();
+      while (stack.length && peakLast().val < val) {
+        parentNode = stack.pop();
+      }
 
-            parentNode.right = node;
-        }
-
-        stack.push(node);
+      parentNode.right = node;
     }
 
-    return head;
+    stack.push(node);
+  }
 
-    function peakLast() {
-        return stack[stack.length - 1];
-    }
+  return head;
+
+  function peakLast() {
+    return stack[stack.length - 1];
+  }
 };
 
 const test1 = bstFromPreorder([8,5,1,7,10,12]);

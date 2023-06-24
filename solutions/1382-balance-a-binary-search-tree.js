@@ -11,30 +11,30 @@
  * @return {TreeNode}
  */
 var balanceBST = function(root) {
-    const ordered = [];
-    inOrderTraversal(root);
-    return constructBalancedTree(ordered);
+  const ordered = [];
+  inOrderTraversal(root);
+  return constructBalancedTree(ordered);
 
-    function inOrderTraversal(node) {
-        if (!node) {
-            return;
-        }
-
-        inOrderTraversal(node.left);
-        ordered.push(node);
-        inOrderTraversal(node.right);
+  function inOrderTraversal(node) {
+    if (!node) {
+      return;
     }
 
-    function constructBalancedTree(arr) {
-        if (!arr || !arr.length) {
-            return null;
-        }
+    inOrderTraversal(node.left);
+    ordered.push(node);
+    inOrderTraversal(node.right);
+  }
 
-        const mid = Math.floor(arr.length / 2);
-        const root = arr[mid];
-        root.left = constructBalancedTree(arr.slice(0, mid));
-        root.right = constructBalancedTree(arr.slice(mid + 1));
-
-        return root;
+  function constructBalancedTree(arr) {
+    if (!arr || !arr.length) {
+      return null;
     }
+
+    const mid = Math.floor(arr.length / 2);
+    const root = arr[mid];
+    root.left = constructBalancedTree(arr.slice(0, mid));
+    root.right = constructBalancedTree(arr.slice(mid + 1));
+
+    return root;
+  }
 };

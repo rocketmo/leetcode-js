@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * Definition for isBadVersion()
@@ -15,25 +15,25 @@ const assert = require("assert");
  * @return {function}
  */
 var solution = function(isBadVersion) {
-    /**
+  /**
      * @param {integer} n Total versions
      * @return {integer} The first bad version
      */
-    return function(n) {
-        let left = 1;
-        let right = n + 1;
+  return function(n) {
+    let left = 1;
+    let right = n + 1;
 
-        while (left < right) {
-            const mid = Math.floor((left + right) / 2);
-            if (isBadVersion(mid)) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
+    while (left < right) {
+      const mid = Math.floor((left + right) / 2);
+      if (isBadVersion(mid)) {
+        right = mid;
+      } else {
+        left = mid + 1;
+      }
+    }
 
-        return left;
-    };
+    return left;
+  };
 };
 
 const fn = solution(num => { return num >= 4; });

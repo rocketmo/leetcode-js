@@ -1,42 +1,42 @@
-const assert = require("assert");
-const _ = require("lodash");
+const assert = require('assert');
+const _ = require('lodash');
 
 /**
  * @param {number[][]} grid
  * @return {number}
  */
 var gridGame = function(grid) {
-    const n = grid[0].length;
-    const prefix = _.fill(Array(n), 0);
-    const suffix = _.fill(Array(n), 0);
+  const n = grid[0].length;
+  const prefix = _.fill(Array(n), 0);
+  const suffix = _.fill(Array(n), 0);
 
-    for (let i = 0; i < n; i += 1) {
-        if (i === 0) {
-            prefix[i] = grid[0][i];
-            suffix[n - 1 - i] = grid[1][n - 1 - i];
-        } else {
-            prefix[i] = grid[0][i] + prefix[i - 1];
-            suffix[n - 1 - i] = grid[1][n - 1 - i] + suffix[n - i];
-        }
+  for (let i = 0; i < n; i += 1) {
+    if (i === 0) {
+      prefix[i] = grid[0][i];
+      suffix[n - 1 - i] = grid[1][n - 1 - i];
+    } else {
+      prefix[i] = grid[0][i] + prefix[i - 1];
+      suffix[n - 1 - i] = grid[1][n - 1 - i] + suffix[n - i];
     }
+  }
 
-    let bestIdx = 0;
-    let minSecondScore = getBestSecondScore(0);
+  let bestIdx = 0;
+  let minSecondScore = getBestSecondScore(0);
 
-    for (let i = 1; i < n; i += 1) {
-        const total = getBestSecondScore(i);
-        if (total < minSecondScore) {
-            bestIdx = i;
-            minSecondScore = total;
-        }
+  for (let i = 1; i < n; i += 1) {
+    const total = getBestSecondScore(i);
+    if (total < minSecondScore) {
+      bestIdx = i;
+      minSecondScore = total;
     }
+  }
 
-    return getBestSecondScore(bestIdx);
+  return getBestSecondScore(bestIdx);
 
 
-    function getBestSecondScore(idx) {
-        return Math.max(prefix[n - 1] - prefix[idx], suffix[0] - suffix[idx]);
-    }
+  function getBestSecondScore(idx) {
+    return Math.max(prefix[n - 1] - prefix[idx], suffix[0] - suffix[idx]);
+  }
 };
 
 assert.equal(gridGame([[2,5,4],[1,5,1]]), 4);

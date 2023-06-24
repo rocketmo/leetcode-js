@@ -13,34 +13,34 @@
  * @return {Node}
  */
 var connect = function(root) {
-    if (!root) {
-        return null;
+  if (!root) {
+    return null;
+  }
+
+  let nodes = [ root ];
+
+  while (true) {
+    for (let i = 0; i < nodes.length - 1; i += 1) {
+      nodes[i].next = nodes[i + 1];
     }
 
-    let nodes = [ root ];
+    let newNodes = [];
+    for (let i = 0; i < nodes.length; i += 1) {
+      if (nodes[i].left) {
+        newNodes.push(nodes[i].left);
+      }
 
-    while (true) {
-        for (let i = 0; i < nodes.length - 1; i += 1) {
-            nodes[i].next = nodes[i + 1];
-        }
-
-        let newNodes = [];
-        for (let i = 0; i < nodes.length; i += 1) {
-            if (nodes[i].left) {
-                newNodes.push(nodes[i].left);
-            }
-
-            if (nodes[i].right) {
-                newNodes.push(nodes[i].right);
-            }
-        }
-
-        if (!newNodes.length) {
-            break;
-        }
-
-        nodes = newNodes;
+      if (nodes[i].right) {
+        newNodes.push(nodes[i].right);
+      }
     }
 
-    return root;
+    if (!newNodes.length) {
+      break;
+    }
+
+    nodes = newNodes;
+  }
+
+  return root;
 };

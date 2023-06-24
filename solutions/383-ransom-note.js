@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {string} ransomNote
@@ -6,23 +6,23 @@ const assert = require("assert");
  * @return {boolean}
  */
 var canConstruct = function(ransomNote, magazine) {
-    const charCount = new Map();
-    for (const char of magazine) {
-        const currCount = charCount.get(char) ?? 0;
-        charCount.set(char, currCount + 1);
+  const charCount = new Map();
+  for (const char of magazine) {
+    const currCount = charCount.get(char) ?? 0;
+    charCount.set(char, currCount + 1);
+  }
+
+  for (const char of ransomNote) {
+    if (!charCount.has(char) || charCount.get(char) <= 0) {
+      return false;
     }
 
-    for (const char of ransomNote) {
-        if (!charCount.has(char) || charCount.get(char) <= 0) {
-            return false;
-        }
+    charCount.set(char, charCount.get(char) - 1);
+  }
 
-        charCount.set(char, charCount.get(char) - 1);
-    }
-
-    return true;
+  return true;
 };
 
-assert(canConstruct("aa", "aab"));
-assert.equal(canConstruct("a", "b"), false);
-assert.equal(canConstruct("aa", "ab"), false);
+assert(canConstruct('aa', 'aab'));
+assert.equal(canConstruct('a', 'b'), false);
+assert.equal(canConstruct('aa', 'ab'), false);

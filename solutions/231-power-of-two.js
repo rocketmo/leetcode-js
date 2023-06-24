@@ -1,16 +1,16 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number} n
  * @return {boolean}
  */
 var isPowerOfTwo = function(n) {
-    if (n <= 0) {
-        return false;
-    }
+  if (n <= 0) {
+    return false;
+  }
 
-    // n must have only a single `1` bit
-    return (n & (n - 1)) === 0;
+  // n must have only a single `1` bit
+  return (n & (n - 1)) === 0;
 };
 
 assert(isPowerOfTwo(1));

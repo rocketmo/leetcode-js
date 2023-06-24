@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * First solution: Brute force
@@ -6,23 +6,23 @@ const assert = require("assert");
  * @return {number}
  */
 var numberOfMatches = function(n) {
-    let matches = 0;
+  let matches = 0;
 
-    while (n > 1) {
-        let carry = 0;
+  while (n > 1) {
+    let carry = 0;
 
-        if (n % 2 === 1) {
-            carry = 1;
-            n -= 1;
-        }
-
-        const newMatches = n / 2;
-        n -= newMatches;
-        n += carry;
-        matches += newMatches;
+    if (n % 2 === 1) {
+      carry = 1;
+      n -= 1;
     }
 
-    return matches;
+    const newMatches = n / 2;
+    n -= newMatches;
+    n += carry;
+    matches += newMatches;
+  }
+
+  return matches;
 };
 
 /**
@@ -32,7 +32,7 @@ var numberOfMatches = function(n) {
  * @return {number}
  */
 var numberOfMatches = function(n) {
-    return n - 1;
+  return n - 1;
 };
 
 assert.equal(numberOfMatches(7), 6);

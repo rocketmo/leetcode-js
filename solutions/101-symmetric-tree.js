@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
 
 /**
  * Definition for a binary tree node.
@@ -14,28 +14,28 @@ const { convertArrayToBinaryTree } = require("../other/util");
  * @return {boolean}
  */
 var isSymmetric = function(root) {
-    if (!root) {
-        return true;
-    }
-
-    const lStack = [ root.left ];
-    const rStack = [ root.right ];
-
-    while (lStack.length) {
-        const lNode = lStack.pop();
-        const rNode = rStack.pop();
-
-        if (!lNode && !rNode) {
-            continue;
-        } else if (lNode && rNode && lNode.val === rNode.val) {
-            lStack.push(lNode.left, lNode.right);
-            rStack.push(rNode.right, rNode.left);
-        } else {
-            return false;
-        }
-    }
-
+  if (!root) {
     return true;
+  }
+
+  const lStack = [ root.left ];
+  const rStack = [ root.right ];
+
+  while (lStack.length) {
+    const lNode = lStack.pop();
+    const rNode = rStack.pop();
+
+    if (!lNode && !rNode) {
+      continue;
+    } else if (lNode && rNode && lNode.val === rNode.val) {
+      lStack.push(lNode.left, lNode.right);
+      rStack.push(rNode.right, rNode.left);
+    } else {
+      return false;
+    }
+  }
+
+  return true;
 };
 
 assert(isSymmetric(convertArrayToBinaryTree([1])));

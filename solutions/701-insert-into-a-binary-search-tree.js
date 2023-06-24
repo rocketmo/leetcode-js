@@ -1,4 +1,4 @@
-const { TreeNode } = require("../other/definitions");
+const { TreeNode } = require('../other/definitions');
 
 /**
  * @param {TreeNode} root
@@ -6,29 +6,29 @@ const { TreeNode } = require("../other/definitions");
  * @return {TreeNode}
  */
 var insertIntoBST = function(root, val) {
-    let curr = root;
+  let curr = root;
 
-    if (!root) {
-        return new TreeNode(val);
+  if (!root) {
+    return new TreeNode(val);
+  }
+
+  while (true) {
+    if (val > curr.val) {
+      if (!curr.right) {
+        curr.right = new TreeNode(val);
+        break;
+      }
+
+      curr = curr.right;
+    } else {
+      if (!curr.left) {
+        curr.left = new TreeNode(val);
+        break;
+      }
+
+      curr = curr.left;
     }
+  }
 
-    while (true) {
-        if (val > curr.val) {
-            if (!curr.right) {
-                curr.right = new TreeNode(val);
-                break;
-            }
-
-            curr = curr.right;
-        } else {
-            if (!curr.left) {
-                curr.left = new TreeNode(val);
-                break;
-            }
-
-            curr = curr.left;
-        }
-    }
-
-    return root;
+  return root;
 };

@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number[]} nums
@@ -6,22 +6,22 @@ const assert = require("assert");
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var rotate = function(nums, k) {
-    let n = nums.length;
-    let idx = 0;
-    k %= n;
+  let n = nums.length;
+  let idx = 0;
+  k %= n;
 
-    while (k > 0) {
-        for (let i = 0; i < k; i += 1) {
-            const tmp = nums[idx + i];
-            const swapIdx = idx + n - k + i;
-            nums[idx + i] = nums[swapIdx];
-            nums[swapIdx] = tmp;
-        }
-
-        n -= k;
-        idx += k;
-        k %= n;
+  while (k > 0) {
+    for (let i = 0; i < k; i += 1) {
+      const tmp = nums[idx + i];
+      const swapIdx = idx + n - k + i;
+      nums[idx + i] = nums[swapIdx];
+      nums[swapIdx] = tmp;
     }
+
+    n -= k;
+    idx += k;
+    k %= n;
+  }
 };
 
 const arr1 = [1,2,3,4,5,6,7];

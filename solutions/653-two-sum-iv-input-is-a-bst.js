@@ -13,22 +13,22 @@
  * @return {boolean}
  */
 var findTarget = function(root, k) {
-    const numSet = new Set();
-    const nodeStack = [ root ];
+  const numSet = new Set();
+  const nodeStack = [ root ];
 
-    while (nodeStack.length) {
-        const currNode = nodeStack.pop();
-        if (!currNode) { continue; }
+  while (nodeStack.length) {
+    const currNode = nodeStack.pop();
+    if (!currNode) { continue; }
 
-        const diff = k - currNode.val;
-        if (numSet.has(diff)) {
-            return true;
-        }
-
-        numSet.add(currNode.val);
-        nodeStack.push(currNode.left);
-        nodeStack.push(currNode.right);
+    const diff = k - currNode.val;
+    if (numSet.has(diff)) {
+      return true;
     }
 
-    return false;
+    numSet.add(currNode.val);
+    nodeStack.push(currNode.left);
+    nodeStack.push(currNode.right);
+  }
+
+  return false;
 };

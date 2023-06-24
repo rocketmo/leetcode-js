@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
 
 /**
  * Definition for a binary tree node.
@@ -15,28 +15,28 @@ const { convertArrayToBinaryTree } = require("../other/util");
  * @return {boolean}
  */
 var hasPathSum = function(root, targetSum) {
-    if (!root) {
-        return false;
+  if (!root) {
+    return false;
+  }
+
+  return helper(root, root.val);
+
+  function helper(node, currSum) {
+    if (!node) {
+      return false;
     }
 
-    return helper(root, root.val);
+    if (!node.left && !node.right) {
+      return currSum === targetSum;
+    }
 
-    function helper(node, currSum) {
-        if (!node) {
-            return false;
-        }
-
-        if (!node.left && !node.right) {
-            return currSum === targetSum;
-        }
-
-        if ((node.left && helper(node.left, currSum + node.left.val)) ||
+    if ((node.left && helper(node.left, currSum + node.left.val)) ||
             (node.right && helper(node.right, currSum + node.right.val))) {
-            return true;
-        }
-
-        return false;
+      return true;
     }
+
+    return false;
+  }
 };
 
 assert(hasPathSum(convertArrayToBinaryTree([5,4,8,11,null,13,4,7,2,null,null,null,1]), 22));

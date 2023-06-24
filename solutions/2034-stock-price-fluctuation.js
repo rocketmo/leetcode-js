@@ -1,10 +1,10 @@
-const { MinPriorityQueue, MaxPriorityQueue } = require("@datastructures-js/priority-queue");
+const { MinPriorityQueue, MaxPriorityQueue } = require('@datastructures-js/priority-queue');
 
 var StockPrice = function() {
-    this.timeToPrice = new Map();
-    this.lastTime = 0;
-    this.minPrices = new MinPriorityQueue({ priority: stock => stock.price });
-    this.maxPrices = new MaxPriorityQueue({ priority: stock => stock.price });
+  this.timeToPrice = new Map();
+  this.lastTime = 0;
+  this.minPrices = new MinPriorityQueue({ priority: stock => stock.price });
+  this.maxPrices = new MaxPriorityQueue({ priority: stock => stock.price });
 };
 
 /**
@@ -13,41 +13,41 @@ var StockPrice = function() {
  * @return {void}
  */
 StockPrice.prototype.update = function(timestamp, price) {
-    this.timeToPrice.set(timestamp, price);
-    this.lastTime = Math.max(this.lastTime, timestamp);
-    this.minPrices.enqueue({ timestamp, price });
-    this.maxPrices.enqueue({ timestamp, price });
+  this.timeToPrice.set(timestamp, price);
+  this.lastTime = Math.max(this.lastTime, timestamp);
+  this.minPrices.enqueue({ timestamp, price });
+  this.maxPrices.enqueue({ timestamp, price });
 };
 
 /**
  * @return {number}
  */
 StockPrice.prototype.current = function() {
-    return this.timeToPrice.get(this.lastTime);
+  return this.timeToPrice.get(this.lastTime);
 };
 
 /**
  * @return {number}
  */
 StockPrice.prototype.maximum = function() {
-    while (this.maxPrices.front().element.price !==
+  while (this.maxPrices.front().element.price !==
         this.timeToPrice.get(this.maxPrices.front().element.timestamp)) {
-        this.maxPrices.dequeue();
-    }
+    this.maxPrices.dequeue();
+  }
 
-    return this.maxPrices.front().element.price;
+  return this.maxPrices.front().element.price;
 };
 
 /**
  * @return {number}
  */
 StockPrice.prototype.minimum = function() {
-    while (this.minPrices.front().element.price !==
+  while (this.minPrices.front().element.price !==
         this.timeToPrice.get(this.minPrices.front().element.timestamp)) {
-        this.minPrices.dequeue();
-    }
+    this.minPrices.dequeue();
+  }
 
-    return this.minPrices.front().element.price;
+  return this.minPrices.front().element.price;
 };
 
 /**

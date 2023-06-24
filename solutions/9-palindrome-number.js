@@ -4,15 +4,15 @@
  * @return {boolean}
  */
 var isPalindrome = function(x) {
-    const str = String(x);
+  const str = String(x);
 
-    for (let i = 0; i < str.length / 2; i += 1) {
-        if (str[i] !== str[str.length - 1 - i]) {
-            return false;
-        }
+  for (let i = 0; i < str.length / 2; i += 1) {
+    if (str[i] !== str[str.length - 1 - i]) {
+      return false;
     }
+  }
 
-    return true;
+  return true;
 };
 
 /**
@@ -21,15 +21,15 @@ var isPalindrome = function(x) {
  * @return {boolean}
  */
 var isPalindrome = function(x) {
-    if (x < 0) { return false; }
+  if (x < 0) { return false; }
 
-    let y = x, reversed = 0;
-    while (y > 0) {
-        reversed = (reversed * 10) + (y % 10);
-        y = Math.floor(y / 10);
-    }
+  let y = x, reversed = 0;
+  while (y > 0) {
+    reversed = (reversed * 10) + (y % 10);
+    y = Math.floor(y / 10);
+  }
 
-    return x === reversed;
+  return x === reversed;
 };
 
 /**
@@ -38,6 +38,6 @@ var isPalindrome = function(x) {
  * @return {boolean}
  */
 var isPalindrome = function(x) {
-    const str = x.toString();
-    return str === str.split("").reverse().join("");
+  const str = x.toString();
+  return str === str.split('').reverse().join('');
 };

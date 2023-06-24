@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
 
 /**
  * Definition for a binary tree node.
@@ -16,34 +16,34 @@ const { convertArrayToBinaryTree } = require("../other/util");
  * @return {boolean}
  */
 var isCousins = function(root, x, y) {
-    const xInfo = findNode(root, null, x, 1);
-    const yInfo = findNode(root, null, y, 1);
+  const xInfo = findNode(root, null, x, 1);
+  const yInfo = findNode(root, null, y, 1);
 
-    if (xInfo && yInfo && xInfo.depth === yInfo.depth && xInfo.parent !== yInfo.parent) {
-        return true;
+  if (xInfo && yInfo && xInfo.depth === yInfo.depth && xInfo.parent !== yInfo.parent) {
+    return true;
+  }
+
+  return false;
+
+  function findNode(currNode, parent, val, currDepth) {
+    if (!currNode) {
+      return null;
     }
 
-    return false;
-
-    function findNode(currNode, parent, val, currDepth) {
-        if (!currNode) {
-            return null;
-        }
-
-        if (currNode.val === val) {
-            return {
-                parent,
-                depth: currDepth
-            };
-        }
-
-        const leftInfo = findNode(currNode.left, currNode, val, currDepth + 1);
-        if (leftInfo) {
-            return leftInfo;
-        }
-
-        return findNode(currNode.right, currNode, val, currDepth + 1);
+    if (currNode.val === val) {
+      return {
+        parent,
+        depth: currDepth
+      };
     }
+
+    const leftInfo = findNode(currNode.left, currNode, val, currDepth + 1);
+    if (leftInfo) {
+      return leftInfo;
+    }
+
+    return findNode(currNode.right, currNode, val, currDepth + 1);
+  }
 };
 
 assert(isCousins(convertArrayToBinaryTree([1,2,3,null,4,null,5]), 5, 4));

@@ -1,4 +1,4 @@
-const { ListNode } = require("../other/definitions");
+const { ListNode } = require('../other/definitions');
 
 /**
  * @param {ListNode} l1
@@ -6,48 +6,48 @@ const { ListNode } = require("../other/definitions");
  * @return {ListNode}
  */
 var addTwoNumbers = function(l1, l2) {
-    // Reverse the two given lists
-    let rev1 = new ListNode(l1.val);
-    let rev2 = new ListNode(l2.val);
-    let curr1 = l1.next, curr2 = l2.next;
+  // Reverse the two given lists
+  let rev1 = new ListNode(l1.val);
+  let rev2 = new ListNode(l2.val);
+  let curr1 = l1.next, curr2 = l2.next;
 
-    while (curr1 || curr2) {
-        if (curr1) {
-            let temp1 = new ListNode(curr1.val, rev1);
-            rev1 = temp1;
-            curr1 = curr1.next;
-        }
-
-        if (curr2) {
-            let temp2 = new ListNode(curr2.val, rev2);
-            rev2 = temp2;
-            curr2 = curr2.next;
-        }
+  while (curr1 || curr2) {
+    if (curr1) {
+      let temp1 = new ListNode(curr1.val, rev1);
+      rev1 = temp1;
+      curr1 = curr1.next;
     }
 
-    // Sum the reversed lists
-    let carry = 0;
-    let ansNode = null;
+    if (curr2) {
+      let temp2 = new ListNode(curr2.val, rev2);
+      rev2 = temp2;
+      curr2 = curr2.next;
+    }
+  }
 
-    while (rev1 || rev2 || carry > 0) {
-        let sum = carry;
-        sum += rev1 ? rev1.val : 0;
-        sum += rev2 ? rev2.val : 0;
+  // Sum the reversed lists
+  let carry = 0;
+  let ansNode = null;
 
-        carry = Math.floor(sum / 10);
-        sum = sum % 10;
+  while (rev1 || rev2 || carry > 0) {
+    let sum = carry;
+    sum += rev1 ? rev1.val : 0;
+    sum += rev2 ? rev2.val : 0;
 
-        const tempNode = new ListNode(sum, ansNode);
-        ansNode = tempNode;
+    carry = Math.floor(sum / 10);
+    sum = sum % 10;
 
-        if (rev1) {
-            rev1 = rev1.next;
-        }
+    const tempNode = new ListNode(sum, ansNode);
+    ansNode = tempNode;
 
-        if (rev2) {
-            rev2 = rev2.next;
-        }
+    if (rev1) {
+      rev1 = rev1.next;
     }
 
-    return ansNode;
+    if (rev2) {
+      rev2 = rev2.next;
+    }
+  }
+
+  return ansNode;
 };

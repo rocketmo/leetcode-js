@@ -1,21 +1,21 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number[]} nums
  * @return {boolean}
  */
 var containsDuplicate = function(nums) {
-    const numSet = new Set();
+  const numSet = new Set();
 
-    for (const num of nums) {
-        if (numSet.has(num)) {
-            return true;
-        }
-
-        numSet.add(num);
+  for (const num of nums) {
+    if (numSet.has(num)) {
+      return true;
     }
 
-    return false;
+    numSet.add(num);
+  }
+
+  return false;
 };
 
 assert(containsDuplicate([1,2,3,1]));

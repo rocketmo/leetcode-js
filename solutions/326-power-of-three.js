@@ -1,19 +1,19 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number} n
  * @return {boolean}
  */
 var isPowerOfThree = function(n) {
-    while (n > 1) {
-        if (n % 3 > 0) {
-            break;
-        }
-
-        n /= 3;
+  while (n > 1) {
+    if (n % 3 > 0) {
+      break;
     }
 
-    return n === 1;
+    n /= 3;
+  }
+
+  return n === 1;
 };
 
 assert(isPowerOfThree(27));

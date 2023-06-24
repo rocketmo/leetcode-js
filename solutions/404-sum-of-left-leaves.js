@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToBinaryTree } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToBinaryTree } = require('../other/util');
 
 /**
  * Definition for a binary tree node.
@@ -14,23 +14,23 @@ const { convertArrayToBinaryTree } = require("../other/util");
  * @return {number}
  */
 var sumOfLeftLeaves = function(root) {
-    let sum = 0;
-    helper(root);
-    return sum;
+  let sum = 0;
+  helper(root);
+  return sum;
 
-    function helper(node, isLeft) {
-        if (!node) {
-            return;
-        }
-
-        if (!node.left && !node.right) {
-            sum += isLeft ? node.val : 0;
-            return;
-        }
-
-        helper(node.left, true);
-        helper(node.right, false);
+  function helper(node, isLeft) {
+    if (!node) {
+      return;
     }
+
+    if (!node.left && !node.right) {
+      sum += isLeft ? node.val : 0;
+      return;
+    }
+
+    helper(node.left, true);
+    helper(node.right, false);
+  }
 };
 
 assert.equal(sumOfLeftLeaves(convertArrayToBinaryTree([3,9,20,null,null,15,7])), 24);

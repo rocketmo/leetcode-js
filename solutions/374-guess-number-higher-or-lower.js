@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * Forward declaration of guess API.
@@ -11,15 +11,15 @@ const assert = require("assert");
 let guess = num => {};
 
 function createGuessFn(num) {
-    return g => {
-        if (g === num) {
-            return 0;
-        } else if (g < num) {
-            return 1;
-        }
+  return g => {
+    if (g === num) {
+      return 0;
+    } else if (g < num) {
+      return 1;
+    }
 
-        return -1;
-    };
+    return -1;
+  };
 }
 
 /**
@@ -27,23 +27,23 @@ function createGuessFn(num) {
  * @return {number}
  */
 var guessNumber = function(n) {
-    let left = 1;
-    let right = n + 1;
+  let left = 1;
+  let right = n + 1;
 
-    while (left < right) {
-        const mid = Math.floor((left + right) / 2);
-        const guessResult = guess(mid);
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2);
+    const guessResult = guess(mid);
 
-        if (guessResult === 0) {
-            return mid;
-        } else if (guessResult < 0) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
+    if (guessResult === 0) {
+      return mid;
+    } else if (guessResult < 0) {
+      right = mid;
+    } else {
+      left = mid + 1;
     }
+  }
 
-    return left;
+  return left;
 };
 
 guess = createGuessFn(6);

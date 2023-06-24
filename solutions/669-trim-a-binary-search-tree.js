@@ -14,47 +14,47 @@
  * @return {TreeNode}
  */
 var trimBST = function(root, low, high) {
-    let trimmedRoot = root;
+  let trimmedRoot = root;
 
-    while (true) {
-        if (!trimmedRoot) {
-            break;
-        }
-
-        if (trimmedRoot.val < low) {
-            trimmedRoot = trimmedRoot.right;
-        } else if (trimmedRoot.val > high) {
-            trimmedRoot = trimmedRoot.left;
-        } else {
-            break;
-        }
+  while (true) {
+    if (!trimmedRoot) {
+      break;
     }
 
-    let nodeStack = [ trimmedRoot ];
+    if (trimmedRoot.val < low) {
+      trimmedRoot = trimmedRoot.right;
+    } else if (trimmedRoot.val > high) {
+      trimmedRoot = trimmedRoot.left;
+    } else {
+      break;
+    }
+  }
 
-    while (nodeStack.length) {
-        const node = nodeStack.pop();
+  let nodeStack = [ trimmedRoot ];
 
-        if (!node) {
-            continue;
-        }
+  while (nodeStack.length) {
+    const node = nodeStack.pop();
 
-        if (node.left !== null) {
-            while (node.left && node.left.val < low) {
-                node.left = node.left.right;
-            }
-
-            nodeStack.push(node.left);
-        }
-
-        if (node.right !== null) {
-            while (node.right && node.right.val > high) {
-                node.right = node.right.left;
-            }
-
-            nodeStack.push(node.right);
-        }
+    if (!node) {
+      continue;
     }
 
-    return trimmedRoot;
+    if (node.left !== null) {
+      while (node.left && node.left.val < low) {
+        node.left = node.left.right;
+      }
+
+      nodeStack.push(node.left);
+    }
+
+    if (node.right !== null) {
+      while (node.right && node.right.val > high) {
+        node.right = node.right.left;
+      }
+
+      nodeStack.push(node.right);
+    }
+  }
+
+  return trimmedRoot;
 };

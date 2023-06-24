@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { convertArrayToList } = require("../other/util");
+const assert = require('assert');
+const { convertArrayToList } = require('../other/util');
 
 /**
  * Definition for singly-linked list.
@@ -13,15 +13,15 @@ const { convertArrayToList } = require("../other/util");
  * @return {number}
  */
 var getDecimalValue = function(head) {
-    let str = "";
-    let currNode = head;
+  let str = '';
+  let currNode = head;
 
-    while (currNode) {
-        str += currNode.val;
-        currNode = currNode.next;
-    }
+  while (currNode) {
+    str += currNode.val;
+    currNode = currNode.next;
+  }
 
-    return parseInt(str, 2);
+  return parseInt(str, 2);
 };
 
 assert.equal(getDecimalValue(convertArrayToList([1,0,1])), 5);

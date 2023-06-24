@@ -1,4 +1,4 @@
-const { ListNode } = require("../other/definitions");
+const { ListNode } = require('../other/definitions');
 
 /**
  * @param {ListNode} l1
@@ -6,35 +6,35 @@ const { ListNode } = require("../other/definitions");
  * @return {ListNode}
  */
 var addTwoNumbers = function(l1, l2) {
-    let currentListNode1 = l1;
-    let currentListNode2 = l2;
-    let carryover = 0;
+  let currentListNode1 = l1;
+  let currentListNode2 = l2;
+  let carryover = 0;
 
-    const sum = new ListNode();
-    let currentSumNode = sum;
+  const sum = new ListNode();
+  let currentSumNode = sum;
 
-    while (true) {
-        const val1 = currentListNode1?.val ?? 0;
-        const val2 = currentListNode2?.val ?? 0;
-        const valSum = val1 + val2 + carryover;
+  while (true) {
+    const val1 = currentListNode1?.val ?? 0;
+    const val2 = currentListNode2?.val ?? 0;
+    const valSum = val1 + val2 + carryover;
 
-        currentSumNode.val = valSum >= 10 ? valSum - 10 : valSum;
-        carryover = valSum >= 10 ? 1 : 0;
+    currentSumNode.val = valSum >= 10 ? valSum - 10 : valSum;
+    carryover = valSum >= 10 ? 1 : 0;
 
-        currentListNode1 = currentListNode1?.next;
-        currentListNode2 = currentListNode2?.next;
+    currentListNode1 = currentListNode1?.next;
+    currentListNode2 = currentListNode2?.next;
 
-        if (!currentListNode1 && !currentListNode2) {
-            if (carryover) {
-                currentSumNode.next = new ListNode(carryover);
-            }
+    if (!currentListNode1 && !currentListNode2) {
+      if (carryover) {
+        currentSumNode.next = new ListNode(carryover);
+      }
 
-            break;
-        }
-
-        currentSumNode.next = new ListNode();
-        currentSumNode = currentSumNode.next;
+      break;
     }
 
-    return sum;
+    currentSumNode.next = new ListNode();
+    currentSumNode = currentSumNode.next;
+  }
+
+  return sum;
 };

@@ -10,20 +10,20 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-    if (!head) {
-        return head;
-    }
+  if (!head) {
+    return head;
+  }
 
-    let currHead = head;
-    let currNode = head.next;
-    currHead.next = null;
+  let currHead = head;
+  let currNode = head.next;
+  currHead.next = null;
 
-    while (currNode) {
-        let tmp = currNode.next;
-        currNode.next = currHead;
-        currHead = currNode;
-        currNode = tmp;
-    }
+  while (currNode) {
+    let tmp = currNode.next;
+    currNode.next = currHead;
+    currHead = currNode;
+    currNode = tmp;
+  }
 
-    return currHead;
+  return currHead;
 };

@@ -2,8 +2,8 @@
  * Initialize your data structure here.
  */
 var RandomizedSet = function() {
-    this.valMap = new Map();
-    this.valArr = [];
+  this.valMap = new Map();
+  this.valArr = [];
 };
 
 /**
@@ -13,14 +13,14 @@ var RandomizedSet = function() {
  * @return {boolean}
  */
 RandomizedSet.prototype.insert = function(val) {
-    if (this.valMap.has(val)) {
-        return false;
-    }
+  if (this.valMap.has(val)) {
+    return false;
+  }
 
-    this.valArr.push(val);
-    this.valMap.set(val, this.valArr.length - 1);
+  this.valArr.push(val);
+  this.valMap.set(val, this.valArr.length - 1);
 
-    return true;
+  return true;
 };
 
 /**
@@ -29,24 +29,24 @@ RandomizedSet.prototype.insert = function(val) {
  * @return {boolean}
  */
 RandomizedSet.prototype.remove = function(val) {
-    if (!this.valMap.has(val)) {
-        return false;
-    }
+  if (!this.valMap.has(val)) {
+    return false;
+  }
 
-    if (this.valMap.get(val) === this.valArr.length - 1) {
-        this.valMap.delete(val);
-        this.valArr.pop();
-    } else {
-        const lastVal = this.valArr[this.valArr.length - 1];
-        const delIdx = this.valMap.get(val);
-        this.valMap.set(lastVal, delIdx);
-        this.valArr[delIdx] = lastVal;
+  if (this.valMap.get(val) === this.valArr.length - 1) {
+    this.valMap.delete(val);
+    this.valArr.pop();
+  } else {
+    const lastVal = this.valArr[this.valArr.length - 1];
+    const delIdx = this.valMap.get(val);
+    this.valMap.set(lastVal, delIdx);
+    this.valArr[delIdx] = lastVal;
 
-        this.valMap.delete(val);
-        this.valArr.pop();
-    }
+    this.valMap.delete(val);
+    this.valArr.pop();
+  }
 
-    return true;
+  return true;
 };
 
 /**
@@ -54,8 +54,8 @@ RandomizedSet.prototype.remove = function(val) {
  * @return {number}
  */
 RandomizedSet.prototype.getRandom = function() {
-    const idx = Math.floor(Math.random() * this.valArr.length);
-    return this.valArr[idx];
+  const idx = Math.floor(Math.random() * this.valArr.length);
+  return this.valArr[idx];
 };
 
 /**

@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {string} s
@@ -6,29 +6,29 @@ const assert = require("assert");
  * @return {boolean}
  */
 var backspaceCompare = function(s, t) {
-    const bsStr1 = getBackspaceString(s);
-    const bsStr2 = getBackspaceString(t);
+  const bsStr1 = getBackspaceString(s);
+  const bsStr2 = getBackspaceString(t);
 
-    return bsStr1 === bsStr2;
+  return bsStr1 === bsStr2;
 
-    function getBackspaceString(str) {
-        let bsStr = [];
+  function getBackspaceString(str) {
+    let bsStr = [];
 
-        for (const char of str) {
-            if (char === "#") {
-                if (bsStr.length > 0) {
-                    bsStr.pop();
-                }
-            } else {
-                bsStr.push(char);
-            }
+    for (const char of str) {
+      if (char === '#') {
+        if (bsStr.length > 0) {
+          bsStr.pop();
         }
-
-        return bsStr.join("");
+      } else {
+        bsStr.push(char);
+      }
     }
+
+    return bsStr.join('');
+  }
 };
 
-assert(backspaceCompare("ab#c", "ad#c"));
-assert(backspaceCompare("ab##", "c#d#"));
-assert(backspaceCompare("a##c", "#a#c"));
-assert.equal(backspaceCompare("a#c", "b"), false);
+assert(backspaceCompare('ab#c', 'ad#c'));
+assert(backspaceCompare('ab##', 'c#d#'));
+assert(backspaceCompare('a##c', '#a#c'));
+assert.equal(backspaceCompare('a#c', 'b'), false);

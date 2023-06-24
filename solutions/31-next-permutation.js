@@ -1,45 +1,45 @@
-const assert = require("assert");
+const assert = require('assert');
 
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var nextPermutation = function(nums) {
-    const n = nums.length;
-    let maxIdx = n - 1;
-    let currIdx = maxIdx - 1;
+  const n = nums.length;
+  let maxIdx = n - 1;
+  let currIdx = maxIdx - 1;
 
-    while (currIdx >= 0) {
-        if (nums[currIdx] < nums[maxIdx]) {
-            break;
-        }
-
-        maxIdx = currIdx;
-        currIdx -= 1;
+  while (currIdx >= 0) {
+    if (nums[currIdx] < nums[maxIdx]) {
+      break;
     }
 
-    // Currently have the greatest permutation, sort nums in ascending order
-    if (currIdx < 0) {
-        nums.sort((a, b) => a - b);
-        return;
+    maxIdx = currIdx;
+    currIdx -= 1;
+  }
+
+  // Currently have the greatest permutation, sort nums in ascending order
+  if (currIdx < 0) {
+    nums.sort((a, b) => a - b);
+    return;
+  }
+
+  // Otherwise, get the next permutation
+  const sortedArr = nums.slice(currIdx);
+  sortedArr.sort((a, b) => a - b);
+
+  let original = nums[currIdx];
+  let sortedIdx = maxIdx;
+
+  for (let i = 0; i < sortedArr.length; i += 1) {
+    nums[sortedIdx] = sortedArr[i];
+    sortedIdx += 1;
+
+    if (sortedArr[i] === original && sortedArr[i + 1] !== sortedArr[i]) {
+      nums[currIdx] = sortedArr[i + 1];
+      i += 1;
     }
-
-    // Otherwise, get the next permutation
-    const sortedArr = nums.slice(currIdx);
-    sortedArr.sort((a, b) => a - b);
-
-    let original = nums[currIdx];
-    let sortedIdx = maxIdx;
-
-    for (let i = 0; i < sortedArr.length; i += 1) {
-        nums[sortedIdx] = sortedArr[i];
-        sortedIdx += 1;
-
-        if (sortedArr[i] === original && sortedArr[i + 1] !== sortedArr[i]) {
-            nums[currIdx] = sortedArr[i + 1];
-            i += 1;
-        }
-    }
+  }
 };
 
 const arr1 = [1,2,3];
